@@ -1,0 +1,25 @@
+server:
+  port: 7004
+
+spring:
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/userdb
+    username: poc
+    password: poc
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+#
+#  cloud:
+#    function:
+#      definition: userConsumer
+#    stream:
+#      kafka:
+#        binder:
+#          brokers: localhost:9092
+#      bindings:
+#        userConsumer-in-0:
+#          destination: destination

@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://repo.spring.io/release' }
+        gradlePluginPortal()
+        //mavenLocal()
+    }
+}
+
+rootProject.name = 'poc_repo'
+
+
+/*
+repositories {
+    maven { url = uri("https://repo.spring.io/release") }
+}
+*/
+
+include ':api'
+include ':util'
+include ':microservices:productCompositeService'
+include ':microservices:productService'
+include ':microservices:reviewService'
+include ':microservices:recommendationService'
+include ':microservices:userService'
