@@ -7,17 +7,17 @@ import reactor.core.publisher.Mono;
 public interface ProductCompositeAPI {
 
     @GetMapping("/composite-product")
-    Mono<ProductAggregate> getOneProduct(@RequestParam("id") Long id);
+    Mono<ProductAggregate> getOneProduct(@PathVariable("id") Long id);
 
     @GetMapping("/composite-product")
     Flux<ProductAggregate> getAllProducts();
 
     @PostMapping("/composite-product")
-    void addOneProduct(@RequestParam("id") Long id, @RequestBody ProductAggregate product);
+    void addOneProduct(@PathVariable("id") Long id, @RequestBody ProductAggregate product);
 
     @PutMapping("/composite-product")
-    void updateProduct(@RequestParam("id") Long id, @RequestBody ProductAggregate product);
+    void updateProduct(@PathVariable("id") Long id, @RequestBody ProductAggregate product);
 
     @DeleteMapping("/composite-product")
-    void deleteOneProduct(@RequestParam("id") Long id);
+    void deleteOneProduct(@PathVariable("id") Long id);
 }

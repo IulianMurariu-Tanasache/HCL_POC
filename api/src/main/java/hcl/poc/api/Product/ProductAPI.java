@@ -7,18 +7,18 @@ import reactor.core.publisher.Mono;
 
 public interface ProductAPI {
 
-    @GetMapping("/product")
-    Mono<Product> getOneProduct(@RequestParam("id") Long id);
+    @GetMapping("/product/{id}")
+    Mono<ProductDTO> getOneProduct(@PathVariable("id") Long id);
 
     @GetMapping("/product")
-    Flux<Product> getAllProducts();
+    Flux<ProductDTO> getAllProducts();
 
     @PostMapping("/product")
-    void addOneProduct(@RequestParam("id") Long id, @RequestBody Product product);
+    void addOneProduct(@RequestBody ProductDTO productDTO);
 
-    @PutMapping("/product")
-    void updateProduct(@RequestParam("id") Long id, @RequestBody Product product);
+    @PutMapping("/product/{id}")
+    void updateProduct(@PathVariable("id") Long id, @RequestBody ProductDTO productDTO);
 
-    @DeleteMapping("/product")
-    void deleteOneProduct(@RequestParam("id") Long id);
+    @DeleteMapping("/product/{id}")
+    void deleteOneProduct(@PathVariable("id") Long id);
 }

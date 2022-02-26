@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Recommendation {
 
-    private Integer product_id;
-    private Integer recommendation_id;
+    private Long product_id;
+    private Long recommendation_id;
     private String author;
     private double rate;
     private String content;

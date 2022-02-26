@@ -6,57 +6,6 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/api" />
-            <option value="$PROJECT_DIR$/microservices" />
-            <option value="$PROJECT_DIR$/microservices/productCompositeService" />
-            <option value="$PROJECT_DIR$/microservices/productService" />
-            <option value="$PROJECT_DIR$/microservices/recommendationService" />
-            <option value="$PROJECT_DIR$/microservices/reviewService" />
-            <option value="$PROJECT_DIR$/microservices/userService" />
-            <option value="$PROJECT_DIR$/util" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/api" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/api" />
-            <option value="$PROJECT_DIR$/microservices" />
-            <option value="$PROJECT_DIR$/microservices/productCompositeService" />
-            <option value="$PROJECT_DIR$/microservices/productService" />
-            <option value="$PROJECT_DIR$/microservices/recommendationService" />
-            <option value="$PROJECT_DIR$/microservices/reviewService" />
-            <option value="$PROJECT_DIR$/microservices/userService" />
-            <option value="$PROJECT_DIR$/util" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/microservices/productCompositeService" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/api" />
-            <option value="$PROJECT_DIR$/microservices" />
-            <option value="$PROJECT_DIR$/microservices/productCompositeService" />
-            <option value="$PROJECT_DIR$/microservices/productService" />
-            <option value="$PROJECT_DIR$/microservices/recommendationService" />
-            <option value="$PROJECT_DIR$/microservices/reviewService" />
-            <option value="$PROJECT_DIR$/microservices/userService" />
-            <option value="$PROJECT_DIR$/util" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/microservices/productService" />
         <option name="gradleJvm" value="15" />
         <option name="modules">
           <set>
@@ -68,75 +17,7 @@
             <option value="$PROJECT_DIR$/microservices/recommendationService" />
             <option value="$PROJECT_DIR$/microservices/reviewService" />
             <option value="$PROJECT_DIR$/microservices/userService" />
-            <option value="$PROJECT_DIR$/util" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/microservices/recommendationService" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/api" />
-            <option value="$PROJECT_DIR$/microservices" />
-            <option value="$PROJECT_DIR$/microservices/productCompositeService" />
-            <option value="$PROJECT_DIR$/microservices/productService" />
-            <option value="$PROJECT_DIR$/microservices/recommendationService" />
-            <option value="$PROJECT_DIR$/microservices/reviewService" />
-            <option value="$PROJECT_DIR$/microservices/userService" />
-            <option value="$PROJECT_DIR$/util" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/microservices/reviewService" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/api" />
-            <option value="$PROJECT_DIR$/microservices" />
-            <option value="$PROJECT_DIR$/microservices/productCompositeService" />
-            <option value="$PROJECT_DIR$/microservices/productService" />
-            <option value="$PROJECT_DIR$/microservices/recommendationService" />
-            <option value="$PROJECT_DIR$/microservices/reviewService" />
-            <option value="$PROJECT_DIR$/microservices/userService" />
-            <option value="$PROJECT_DIR$/util" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/microservices/userService" />
-        <option name="gradleJvm" value="15" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/api" />
-            <option value="$PROJECT_DIR$/microservices" />
-            <option value="$PROJECT_DIR$/microservices/productCompositeService" />
-            <option value="$PROJECT_DIR$/microservices/productService" />
-            <option value="$PROJECT_DIR$/microservices/recommendationService" />
-            <option value="$PROJECT_DIR$/microservices/reviewService" />
-            <option value="$PROJECT_DIR$/microservices/userService" />
-            <option value="$PROJECT_DIR$/util" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/util" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/api" />
-            <option value="$PROJECT_DIR$/microservices" />
-            <option value="$PROJECT_DIR$/microservices/productCompositeService" />
-            <option value="$PROJECT_DIR$/microservices/productService" />
-            <option value="$PROJECT_DIR$/microservices/recommendationService" />
-            <option value="$PROJECT_DIR$/microservices/reviewService" />
-            <option value="$PROJECT_DIR$/microservices/userService" />
+            <option value="$PROJECT_DIR$/productService" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>
