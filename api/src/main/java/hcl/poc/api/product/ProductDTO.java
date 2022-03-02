@@ -1,11 +1,21 @@
 package hcl.poc.api.product;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.Objects;
 
 public class ProductDTO {
 
+    @Schema(description = "Unique identifier of the product.",
+            example = "1", required = true)
     private Long id;
+
+    @Schema(description = "The name of the product.",
+            example = "milk", required = true)
     private String name;
+
+    @Schema(description = "The weight of the product.",
+            example = "250.22", required = true)
     private double weight;
 
     public ProductDTO(){}

@@ -1,13 +1,29 @@
 package hcl.poc.api.review;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.Objects;
 
 public class ReviewDTO {
 
+    @Schema(description = "Unique identifier of the review.",
+            example = "1", required = true)
     private Long review_id;
+
+    @Schema(description = "Unique identifier of the reviewed product.",
+            example = "1", required = true)
     private Long product_id;
+
+    @Schema(description = "The user that wrote the review.",
+            example = "John", required = true)
     private String author;
+
+    @Schema(description = "The subject of the review.",
+            example = "Is good", required = true)
     private String subject;
+
+    @Schema(description = "The content of the review.",
+            example = "This product is good", required = false)
     private String content;
 
     @Override

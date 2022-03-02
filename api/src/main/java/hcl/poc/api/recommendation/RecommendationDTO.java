@@ -1,13 +1,29 @@
 package hcl.poc.api.recommendation;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.Objects;
 
 public class RecommendationDTO {
 
-    private Long product_id;
+    @Schema(description = "Unique identifier of the recommendation.",
+            example = "1", required = true)
     private Long recommendation_id;
+
+    @Schema(description = "Unique identifier of the recommended product.",
+            example = "1", required = true)
+    private Long product_id;
+
+    @Schema(description = "The user that wrote the recommendation.",
+            example = "John", required = true)
     private String author;
+
+    @Schema(description = "How good the user thinks the product is.",
+            example = "4.5", required = true)
     private double rate;
+
+    @Schema(description = "The content of the recommendation.",
+            example = "This product works well", required = false)
     private String content;
 
     public RecommendationDTO(){

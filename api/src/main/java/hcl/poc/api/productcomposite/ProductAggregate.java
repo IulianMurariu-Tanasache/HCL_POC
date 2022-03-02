@@ -2,16 +2,31 @@ package hcl.poc.api.productcomposite;
 
 import hcl.poc.api.recommendation.RecommendationDTO;
 import hcl.poc.api.review.ReviewDTO;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 import java.util.Objects;
 
 public class ProductAggregate {
 
+    @Schema(description = "Unique identifier of the product.",
+            example = "1", required = true)
     private Long id;
+
+    @Schema(description = "The name of the product",
+            example = "milk", required = true)
     private String name;
+
+    @Schema(description = "The weight of the product.",
+            example = "250.22", required = true)
     private double weight;
+
+    @Schema(description = "A list of recommendations for this product.",
+            required = false)
     private List<RecommendationDTO> recommendationDTOS;
+
+    @Schema(description = "A list of reviews for this product.",
+            required = false)
     private List<ReviewDTO> reviewDTOS;
 
     @Override

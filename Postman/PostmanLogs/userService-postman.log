@@ -1,0 +1,58 @@
+newman
+
+UserService
+
+→ PostFirstUser
+  POST localhost:7004/user [200 OK, 123B, 1217ms]
+  √  Status code is 200
+
+→ GetOneUser
+  GET localhost:7004/user/1 [200 OK, 302B, 102ms]
+  √  Status code is 200
+  √  Your test name
+
+→ PostSecondUser
+  POST localhost:7004/user [200 OK, 123B, 20ms]
+  √  Status code is 200
+
+→ GetAllUsers
+  GET localhost:7004/user [200 OK, 443B, 244ms]
+  √  Status code is 200
+
+→ PutUser1
+  PUT localhost:7004/user/1 [200 OK, 123B, 33ms]
+  √  Status code is 200
+
+→ GetOneUserAfterPut
+  GET localhost:7004/user/1 [200 OK, 312B, 16ms]
+  √  Status code is 200
+  √  Your test name
+
+→ DeleteOneUser
+  DELETE localhost:7004/user/1 [200 OK, 123B, 16ms]
+  √  Status code is 200
+
+→ CloseUserService
+  POST localhost:7004/actuator/shutdown [200 OK, 227B, 16ms]
+  √  Status code is 200
+  √  Your test name
+
+┌─────────────────────────┬─────────────────────┬────────────────────┐
+│                         │            executed │             failed │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│              iterations │                   1 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│                requests │                   8 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│            test-scripts │                   8 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│      prerequest-scripts │                   0 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│              assertions │                  11 │                  0 │
+├─────────────────────────┴─────────────────────┴────────────────────┤
+│ total run duration: 2.3s                                           │
+├────────────────────────────────────────────────────────────────────┤
+│ total data received: 600B (approx)                                 │
+├────────────────────────────────────────────────────────────────────┤
+│ average response time: 208ms [min: 16ms, max: 1217ms, s.d.: 388ms] │
+└────────────────────────────────────────────────────────────────────┘

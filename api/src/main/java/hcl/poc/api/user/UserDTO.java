@@ -1,15 +1,37 @@
 package hcl.poc.api.user;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.Objects;
 
 public class UserDTO {
 
+    @Schema(description = "Unique identifier of the user.",
+            example = "1", required = true)
     private Long id;
+
+    @Schema(description = "Email of the user.",
+            example = "email@domain.com", required = false)
     private String email;
+
+    @Schema(description = "The user name.",
+            example = "John", required = true)
     private String name;
+
+    @Schema(description = "The user password.",
+            example = "qwerty", required = true)
     private String password;
+
+    @Schema(description = "if the user has admin privileges.",
+            example = "false", required = true)
     private boolean isAdmin;
+
+    @Schema(description = "Phone number of the user.",
+            example = "0745678923", required = false)
     private String phone;
+
+    @Schema(description = "The user's addres.",
+            example = "Country, City, Street, No.", required = false)
     private String address;
 
     @Override

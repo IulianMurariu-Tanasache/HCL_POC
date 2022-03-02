@@ -22,3 +22,5 @@ management:
       sensitive: false
       enabled: true
 
+springdoc:
+  show-actuator: true

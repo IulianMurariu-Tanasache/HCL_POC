@@ -1,0 +1,55 @@
+newman
+
+ReviewService
+
+→ PostReview
+  POST localhost:7002/review [200 OK, 123B, 938ms]
+
+→ GetFirstReview
+  GET localhost:7002/review/1 [200 OK, 252B, 202ms]
+  √  Status code is 200
+  √  Your test name
+
+→ PostSecondReview
+  POST localhost:7002/review [200 OK, 123B, 18ms]
+  √  Status code is 200
+
+→ GetAllReviews
+  GET localhost:7002/review [200 OK, 363B, 188ms]
+  √  Status code is 200
+
+→ PutFirstReview
+  PUT localhost:7002/review/1 [200 OK, 123B, 32ms]
+  √  Status code is 200
+
+→ DeleteSecondReview
+  DELETE localhost:7002/review/2 [200 OK, 123B, 28ms]
+  √  Status code is 200
+
+→ GetAllReviewsAfter
+  GET localhost:7002/review [200 OK, 254B, 16ms]
+
+→ CloseReviewService
+  POST localhost:7002/actuator/shutdown [200 OK, 227B, 22ms]
+  √  Status code is 200
+  √  Your test name
+
+┌─────────────────────────┬────────────────────┬────────────────────┐
+│                         │           executed │             failed │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              iterations │                  1 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│                requests │                  8 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│            test-scripts │                  6 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│      prerequest-scripts │                  0 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              assertions │                  8 │                  0 │
+├─────────────────────────┴────────────────────┴────────────────────┤
+│ total run duration: 2.1s                                          │
+├───────────────────────────────────────────────────────────────────┤
+│ total data received: 412B (approx)                                │
+├───────────────────────────────────────────────────────────────────┤
+│ average response time: 180ms [min: 16ms, max: 938ms, s.d.: 295ms] │
+└───────────────────────────────────────────────────────────────────┘

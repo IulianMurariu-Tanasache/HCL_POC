@@ -1,0 +1,55 @@
+newman
+
+RecommendationService
+
+→ PostRecommendation
+  POST localhost:7003/recommendation [200 OK, 123B, 1301ms]
+  √  Status code is 200
+
+→ GetFirstRecommendation
+  GET localhost:7003/recommendation/1 [200 OK, 248B, 108ms]
+  √  Status code is 200
+  √  Your test name
+
+→ PostSecondRecommendation
+  POST localhost:7003/recommendation [200 OK, 123B, 24ms]
+  √  Status code is 200
+
+→ GetAllRecommendations
+  GET localhost:7003/recommendation [200 OK, 356B, 259ms]
+  √  Status code is 200
+
+→ PutFirstRecommendation
+  PUT localhost:7003/recommendation/1 [200 OK, 123B, 33ms]
+
+→ DeleteSecondRecommendation
+  DELETE localhost:7003/recommendation/2 [200 OK, 123B, 24ms]
+  √  Status code is 200
+
+→ GetAllRecommendationsAfter
+  GET localhost:7003/recommendation [200 OK, 259B, 12ms]
+
+→ CloseRecommendationService
+  POST localhost:7003/actuator/shutdown [200 OK, 227B, 18ms]
+  √  Status code is 200
+  √  Your test name
+
+┌─────────────────────────┬─────────────────────┬────────────────────┐
+│                         │            executed │             failed │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│              iterations │                   1 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│                requests │                   8 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│            test-scripts │                   6 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│      prerequest-scripts │                   0 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│              assertions │                   8 │                  0 │
+├─────────────────────────┴─────────────────────┴────────────────────┤
+│ total run duration: 2.4s                                           │
+├────────────────────────────────────────────────────────────────────┤
+│ total data received: 406B (approx)                                 │
+├────────────────────────────────────────────────────────────────────┤
+│ average response time: 222ms [min: 12ms, max: 1301ms, s.d.: 415ms] │
+└────────────────────────────────────────────────────────────────────┘
