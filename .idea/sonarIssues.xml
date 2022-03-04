@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="$PROJECT_DIR$/../exemples/back-end-step1/microservices/product-composite-service/src/main/java/com/light/microservices/composite/product/ProductCompositeServiceApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../exemples/back-end-step1/microservices/product-composite-service/src/main/java/com/light/microservices/composite/product/services/ProductCompositeIntegration.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/api/src/main/java/hcl/poc/api/productcomposite/ProductCompositeAPI.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productCompositeService/ProductCompositeServiceApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productCompositeService/controller/ProductCompositeController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productCompositeService/integration/ProductCompositeIntegration.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productCompositeService/service/ProductCompositeService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/integration/ProductCompositeIntegration.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservices/productcompositeservice/src/main/resources/application.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productService/ProductServiceApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productService/controller/ProductController.java">
+          <value>
+            <set>
+              <SonarIssue>
+                <option name="isNew" value="false" />
+                <option name="key" value="AX9WL-zyuVNl-IcJP07l" />
+                <option name="line" value="1" />
+                <option name="message" value="Rename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'." />
+                <option name="ruleKey" value="java:S120" />
+                <option name="severity" value="MINOR" />
+              </SonarIssue>
+            </set>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productService/model/Product.java">
+          <value>
+            <set>
+              <SonarIssue>
+                <option name="isNew" value="false" />
+                <option name="key" value="AX9WL-0HuVNl-IcJP07n" />
+                <option name="line" value="1" />
+                <option name="message" value="Rename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'." />
+                <option name="ruleKey" value="java:S120" />
+                <option name="severity" value="MINOR" />
+              </SonarIssue>
+            </set>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productService/repository/ProductRepository.java">
+          <value>
+            <set>
+              <SonarIssue>
+                <option name="isNew" value="false" />
+                <option name="key" value="AX9WL-0RuVNl-IcJP07o" />
+                <option name="line" value="1" />
+                <option name="message" value="Rename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'." />
+                <option name="ruleKey" value="java:S120" />
+                <option name="severity" value="MINOR" />
+              </SonarIssue>
+            </set>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productService/service/ProductService.java">
+          <value>
+            <set>
+              <SonarIssue>
+                <option name="isNew" value="false" />
+                <option name="key" value="AX9WL-wDuVNl-IcJP07k" />
+                <option name="line" value="1" />
+                <option name="message" value="Rename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'." />
+                <option name="ruleKey" value="java:S120" />
+                <option name="severity" value="MINOR" />
+              </SonarIssue>
+            </set>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/settings.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

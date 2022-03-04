@@ -17,7 +17,6 @@
             <option value="$PROJECT_DIR$/microservices/recommendationService" />
             <option value="$PROJECT_DIR$/microservices/reviewService" />
             <option value="$PROJECT_DIR$/microservices/userService" />
-            <option value="$PROJECT_DIR$/productService" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>

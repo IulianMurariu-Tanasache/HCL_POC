@@ -1,6 +1,7 @@
 plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+
 }
 
 group = 'hcl.poc.util'

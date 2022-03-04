@@ -19,7 +19,7 @@ public interface ProductCompositeAPI {
                     content = @Content(array = @ArraySchema(schema = @Schema(implementation = ProductAggregate.class)))),
             @ApiResponse(responseCode = "404", description = "Product with specified id not found")
     })
-    @GetMapping(value = "/composite-product", produces = "application/json")
+    @GetMapping(value = "/composite-product/{id}", produces = "application/json")
     Mono<ProductAggregate> getOneProduct(@PathVariable("id") Long id);
 
     @Operation(summary = "Get a list of all aggregated products")
