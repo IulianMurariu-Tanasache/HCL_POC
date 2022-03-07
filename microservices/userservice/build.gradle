@@ -2,7 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.6.3'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
-
+	id 'jacoco'
 }
 
 group = 'hcl.poc.userService'
@@ -40,8 +40,19 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+	finalizedBy jacocoTestReport
 }
 targetCompatibility = JavaVersion.VERSION_1_8
 
 jar { enabled = false }
 
+jacoco {
+    toolVersion = "0.8.5"
+}
+
+jacocoTestReport {
+	reports {
+        xml.enabled true
+    }
+    dependsOn test
+}

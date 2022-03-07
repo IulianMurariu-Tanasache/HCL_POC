@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "7107a5bd-4e1e-45cc-8c81-8de5c82a96db",
+		"name": "ProductCompositeService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAggregate1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7000/composite-product/1",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"composite-product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllAggregates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7000/composite-product",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"composite-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CloseProductCompositeService",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:7000/actuator/shutdown",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"actuator",
+						"shutdown"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RecommendationService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">recommendationService</a> &gt; <a href="index.source.html" class="el_package">hcl.poc.recommendationservice.service</a> &gt; <span class="el_source">RecommendationService.java</span></div><h1>RecommendationService.java</h1><pre class="source lang-java linenums">package hcl.poc.recommendationservice.service;
+
+import hcl.com.util.NotFoundException;
+import hcl.poc.api.recommendation.RecommendationDTO;
+import hcl.poc.recommendationservice.model.Recommendation;
+import hcl.poc.recommendationservice.repository.RecommendationRepository;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+<span class="nc" id="L15">public class RecommendationService {</span>
+
+    @Autowired
+    private RecommendationRepository repository;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
+    public RecommendationDTO modifyRecommendation(Long id, RecommendationDTO newRecommendation){
+<span class="nc" id="L24">        Recommendation recommendation = repository.getById(id);</span>
+
+<span class="nc" id="L26">        recommendation.setRecommendation_id(id);</span>
+<span class="nc" id="L27">        recommendation.setAuthor(newRecommendation.getAuthor());</span>
+<span class="nc" id="L28">        recommendation.setContent(newRecommendation.getContent());</span>
+<span class="nc" id="L29">        recommendation.setProduct_id(newRecommendation.getProduct_id());</span>
+<span class="nc" id="L30">        recommendation.setRate(newRecommendation.getRate());</span>
+
+<span class="nc" id="L32">        repository.save(recommendation);</span>
+
+<span class="nc" id="L34">        return modelMapper.map(recommendation, RecommendationDTO.class);</span>
+    }
+
+    public RecommendationDTO getOneRecommendation(Long id){
+<span class="nc" id="L38">        return modelMapper.map(repository.findById(id).orElseThrow(NotFoundException::new),RecommendationDTO.class);</span>
+    }
+
+    public List&lt;RecommendationDTO&gt; getAllRecommendations(){
+<span class="nc" id="L42">        List&lt;RecommendationDTO&gt; listDTO = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L43">        List&lt;Recommendation&gt; listRecommendation = repository.findAll();</span>
+
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        for(Recommendation recommendation : listRecommendation){</span>
+<span class="nc" id="L46">            listDTO.add(modelMapper.map(recommendation, RecommendationDTO.class));</span>
+<span class="nc" id="L47">        }</span>
+
+<span class="nc" id="L49">        return listDTO;</span>
+    }
+
+    public void deleteOneRecommendation(Long id){
+<span class="nc" id="L53">        repository.deleteById(id);</span>
+<span class="nc" id="L54">    }</span>
+
+    public RecommendationDTO addOneRecommendation(RecommendationDTO recommendationDTO){
+<span class="nc" id="L57">        repository.save(modelMapper.map(recommendationDTO,Recommendation.class));</span>
+<span class="nc" id="L58">        return recommendationDTO;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

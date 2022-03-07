@@ -39,7 +39,7 @@ public interface ProductAPI {
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
     @PostMapping(value = "/product", consumes = "application/json")
-    void addOneProduct(@RequestBody ProductDTO productDTO);
+    Mono<ProductDTO> addOneProduct(@RequestBody ProductDTO productDTO);
 
     @Operation(summary = "Update a product by id or add a new one if the specified id does not exist")
     @ApiResponses(value = {
@@ -48,7 +48,7 @@ public interface ProductAPI {
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
     @PutMapping(value = "/product/{id}", consumes = "application/json")
-    void updateProduct(@PathVariable("id") Long id, @RequestBody ProductDTO productDTO);
+    Mono<ProductDTO> updateProduct(@PathVariable("id") Long id, @RequestBody ProductDTO productDTO);
 
     @Operation(summary = "Delete a product by id")
     @ApiResponses(value = {

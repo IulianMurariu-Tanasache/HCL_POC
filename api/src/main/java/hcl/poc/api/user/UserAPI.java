@@ -37,7 +37,7 @@ public interface UserAPI {
     })
     @Operation(summary = "Add a new user")
     @PostMapping(value = "/user", consumes = "application/json")
-    void addOneUser(@RequestBody UserDTO newUserDTO);
+    Mono<UserDTO> addOneUser(@RequestBody UserDTO newUserDTO);
 
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful operation",
@@ -55,5 +55,5 @@ public interface UserAPI {
     })
     @Operation(summary = "Update a user by id or add if the id doesn't already exist")
     @PutMapping(value = "/user/{id}", consumes = "application/json")
-    void putUser(@RequestBody UserDTO userDTO, @PathVariable("id") Long id);
+    Mono<UserDTO> putUser(@RequestBody UserDTO userDTO, @PathVariable("id") Long id);
 }

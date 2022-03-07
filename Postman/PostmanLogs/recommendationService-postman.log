@@ -3,27 +3,27 @@ newman
 RecommendationService
 
 → PostRecommendation
-  POST localhost:7003/recommendation [200 OK, 123B, 1301ms]
+  POST localhost:7003/recommendation [200 OK, 248B, 888ms]
   √  Status code is 200
 
 → GetFirstRecommendation
-  GET localhost:7003/recommendation/1 [200 OK, 248B, 108ms]
+  GET localhost:7003/recommendation/1 [200 OK, 248B, 60ms]
   √  Status code is 200
   √  Your test name
 
 → PostSecondRecommendation
-  POST localhost:7003/recommendation [200 OK, 123B, 24ms]
+  POST localhost:7003/recommendation [200 OK, 269B, 29ms]
   √  Status code is 200
 
 → GetAllRecommendations
-  GET localhost:7003/recommendation [200 OK, 356B, 259ms]
+  GET localhost:7003/recommendation [200 OK, 356B, 211ms]
   √  Status code is 200
 
 → PutFirstRecommendation
-  PUT localhost:7003/recommendation/1 [200 OK, 123B, 33ms]
+  PUT localhost:7003/recommendation/1 [200 OK, 257B, 33ms]
 
 → DeleteSecondRecommendation
-  DELETE localhost:7003/recommendation/2 [200 OK, 123B, 24ms]
+  DELETE localhost:7003/recommendation/2 [200 OK, 123B, 20ms]
   √  Status code is 200
 
 → GetAllRecommendationsAfter
@@ -34,22 +34,22 @@ RecommendationService
   √  Status code is 200
   √  Your test name
 
-┌─────────────────────────┬─────────────────────┬────────────────────┐
-│                         │            executed │             failed │
-├─────────────────────────┼─────────────────────┼────────────────────┤
-│              iterations │                   1 │                  0 │
-├─────────────────────────┼─────────────────────┼────────────────────┤
-│                requests │                   8 │                  0 │
-├─────────────────────────┼─────────────────────┼────────────────────┤
-│            test-scripts │                   6 │                  0 │
-├─────────────────────────┼─────────────────────┼────────────────────┤
-│      prerequest-scripts │                   0 │                  0 │
-├─────────────────────────┼─────────────────────┼────────────────────┤
-│              assertions │                   8 │                  0 │
-├─────────────────────────┴─────────────────────┴────────────────────┤
-│ total run duration: 2.4s                                           │
-├────────────────────────────────────────────────────────────────────┤
-│ total data received: 406B (approx)                                 │
-├────────────────────────────────────────────────────────────────────┤
-│ average response time: 222ms [min: 12ms, max: 1301ms, s.d.: 415ms] │
-└────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────┬────────────────────┬────────────────────┐
+│                         │           executed │             failed │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              iterations │                  1 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│                requests │                  8 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│            test-scripts │                  6 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│      prerequest-scripts │                  0 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              assertions │                  8 │                  0 │
+├─────────────────────────┴────────────────────┴────────────────────┤
+│ total run duration: 1881ms                                        │
+├───────────────────────────────────────────────────────────────────┤
+│ total data received: 688B (approx)                                │
+├───────────────────────────────────────────────────────────────────┤
+│ average response time: 158ms [min: 12ms, max: 888ms, s.d.: 282ms] │
+└───────────────────────────────────────────────────────────────────┘

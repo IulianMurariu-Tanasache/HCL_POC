@@ -1,6 +1,5 @@
 package hcl.poc.api.productcomposite;
 
-import hcl.poc.api.user.UserDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -25,7 +24,7 @@ public interface ProductCompositeAPI {
     @Operation(summary = "Get a list of all aggregated products")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful operation",
-                    content = @Content(array = @ArraySchema(schema = @Schema(implementation = UserDTO.class)))),
+                    content = @Content(array = @ArraySchema(schema = @Schema(implementation = ProductAggregate.class)))),
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
     @GetMapping(value = "/composite-product", produces = "application/json")
@@ -34,25 +33,25 @@ public interface ProductCompositeAPI {
     @Operation(summary = "Add a new aggregated product with its reviews and recommendation")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful operation",
-                    content = @Content(array = @ArraySchema(schema = @Schema(implementation = UserDTO.class)))),
+                    content = @Content(array = @ArraySchema(schema = @Schema(implementation = ProductAggregate.class)))),
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
     @PostMapping(value = "/composite-product", produces = "application/json")
-    void addOneProduct(@PathVariable("id") Long id, @RequestBody ProductAggregate product);
+    Mono<ProductAggregate> addOneProduct(@RequestBody ProductAggregate product);
 
     @Operation(summary = "Update a aggregated product or add one new if the specified id does not exist")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful operation",
-                    content = @Content(array = @ArraySchema(schema = @Schema(implementation = UserDTO.class)))),
+                    content = @Content(array = @ArraySchema(schema = @Schema(implementation = ProductAggregate.class)))),
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
     @PutMapping(value = "/composite-product", produces = "application/json")
-    void updateProduct(@PathVariable("id") Long id, @RequestBody ProductAggregate product);
+    Mono<ProductAggregate> updateProduct(@PathVariable("id") Long id, @RequestBody ProductAggregate product);
 
     @Operation(summary = "Delete a product and all of its recommendations and reviews")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful operation",
-                    content = @Content(array = @ArraySchema(schema = @Schema(implementation = UserDTO.class)))),
+                    content = @Content(array = @ArraySchema(schema = @Schema(implementation = ProductAggregate.class)))),
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
     @DeleteMapping("/composite-product")

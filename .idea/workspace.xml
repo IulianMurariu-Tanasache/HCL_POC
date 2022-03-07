@@ -4,19 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b426beea-7c57-47e7-bb8f-0beb2805bdf2" name="Changes" comment="Added script for postman tests and more swagger documentation">
+    <list default="true" id="b426beea-7c57-47e7-bb8f-0beb2805bdf2" name="Changes" comment="Added sonarqube and composite-service">
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarIssues.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarIssues.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/api/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Postman/PostmanCollections/UserService.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/Postman/PostmanCollections/UserService.postman_collection.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Postman/PostmanLogs/productService-postman.log" beforeDir="false" afterPath="$PROJECT_DIR$/Postman/PostmanLogs/productService-postman.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Postman/PostmanLogs/recommendationService-postman.log" beforeDir="false" afterPath="$PROJECT_DIR$/Postman/PostmanLogs/recommendationService-postman.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Postman/PostmanLogs/reviewService-postman.log" beforeDir="false" afterPath="$PROJECT_DIR$/Postman/PostmanLogs/reviewService-postman.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Postman/PostmanLogs/userService-postman.log" beforeDir="false" afterPath="$PROJECT_DIR$/Postman/PostmanLogs/userService-postman.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Postman/postman-tests.bash" beforeDir="false" afterPath="$PROJECT_DIR$/Postman/postman-tests.bash" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/build/classes/java/main/hcl/poc/api/Product/ProductAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/api/build/classes/java/main/hcl/poc/api/Product/ProductAPI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/build/classes/java/main/hcl/poc/api/Product/ProductDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/api/build/classes/java/main/hcl/poc/api/Product/ProductDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/build/classes/java/main/hcl/poc/api/ProductComposite/ProductAggregate.class" beforeDir="false" afterPath="$PROJECT_DIR$/api/build/classes/java/main/hcl/poc/api/ProductComposite/ProductAggregate.class" afterDir="false" />
@@ -29,16 +37,28 @@
       <change beforePath="$PROJECT_DIR$/api/build/classes/java/main/hcl/poc/api/review/ReviewDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/api/build/classes/java/main/hcl/poc/api/review/ReviewDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/build/libs/api-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/api/build/libs/api-1.0.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/api/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hcl/poc/api/product/ProductAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/hcl/poc/api/product/ProductAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/hcl/poc/api/productcomposite/ProductCompositeAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/hcl/poc/api/productcomposite/ProductCompositeAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hcl/poc/api/recommendation/RecommendationAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/hcl/poc/api/recommendation/RecommendationAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hcl/poc/api/review/ReviewAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/hcl/poc/api/review/ReviewAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hcl/poc/api/user/UserAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/hcl/poc/api/user/UserAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build+run.bash" beforeDir="false" afterPath="$PROJECT_DIR$/build+run.bash" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sonar/report-task.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/sonar/report-task.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/bootJarMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/ProductCompositeServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/libs/productCompositeService-v1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/resources/main/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/tmp/bootJar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productCompositeService/ProductCompositeServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productCompositeService/ProductCompositeServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/ProductCompositeServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/ProductCompositeServiceApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/controller/ProductCompositeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/controller/ProductCompositeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/integration/ProductCompositeIntegration$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/integration/ProductCompositeIntegration$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/integration/ProductCompositeIntegration$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/integration/ProductCompositeIntegration$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/integration/ProductCompositeIntegration$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/integration/ProductCompositeIntegration$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/integration/ProductCompositeIntegration.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/integration/ProductCompositeIntegration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/service/ProductCompositeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/build/classes/java/main/hcl/poc/productCompositeService/service/ProductCompositeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/resources/main/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/build/resources/main/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productCompositeService/ProductCompositeServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productcompositeservice/ProductCompositeServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productCompositeService/controller/ProductCompositeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productcompositeservice/controller/ProductCompositeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productCompositeService/integration/ProductCompositeIntegration.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productcompositeservice/integration/ProductCompositeIntegration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productCompositeService/service/ProductCompositeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/src/main/java/hcl/poc/productcompositeservice/service/ProductCompositeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/productcompositeservice/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productcompositeservice/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/productservice/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/productservice/build/classes/java/main/hcl/poc/productService/Controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/build/classes/java/main/hcl/poc/productService/Controller/ProductController.class" afterDir="false" />
@@ -47,9 +67,12 @@
       <change beforePath="$PROJECT_DIR$/microservices/productservice/build/classes/java/main/hcl/poc/productService/Repository/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/build/classes/java/main/hcl/poc/productService/Repository/ProductRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/productservice/build/classes/java/main/hcl/poc/productService/Service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/build/classes/java/main/hcl/poc/productService/Service/ProductService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/productservice/build/libs/productService-v1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/build/libs/productService-v1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/productservice/build/tmp/bootJar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/build/tmp/bootJar/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/productservice/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productService/ProductServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productService/ProductServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productService/ProductServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productservice/ProductServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productService/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productservice/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productService/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productservice/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productService/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productservice/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productService/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/productservice/src/main/java/hcl/poc/productservice/service/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/build/classes/java/main/hcl/poc/recommendationService/Model/Recommendation.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/build/classes/java/main/hcl/poc/recommendationService/Model/Recommendation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/build/classes/java/main/hcl/poc/recommendationService/RecommendationServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/build/classes/java/main/hcl/poc/recommendationService/RecommendationServiceApplication.class" afterDir="false" />
@@ -57,8 +80,12 @@
       <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/build/classes/java/main/hcl/poc/recommendationService/repository/RecommendationRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/build/classes/java/main/hcl/poc/recommendationService/repository/RecommendationRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/build/classes/java/main/hcl/poc/recommendationService/service/RecommendationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/build/classes/java/main/hcl/poc/recommendationService/service/RecommendationService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/build/libs/recommendationService-v1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/build/libs/recommendationService-v1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/build/tmp/bootJar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/build/tmp/bootJar/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/src/main/java/hcl/poc/recommendationService/RecommendationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/src/main/java/hcl/poc/recommendationservice/RecommendationServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/src/main/java/hcl/poc/recommendationService/controller/RecommendationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/src/main/java/hcl/poc/recommendationservice/controller/RecommendationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/src/main/java/hcl/poc/recommendationService/model/Recommendation.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/src/main/java/hcl/poc/recommendationservice/model/Recommendation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/src/main/java/hcl/poc/recommendationService/repository/RecommendationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/src/main/java/hcl/poc/recommendationservice/repository/RecommendationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/recommendationservice/src/main/java/hcl/poc/recommendationService/service/RecommendationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendationservice/src/main/java/hcl/poc/recommendationservice/service/RecommendationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/reviewservice/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/reviewservice/build/classes/java/main/hcl/poc/reviewService/Model/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/build/classes/java/main/hcl/poc/reviewService/Model/Review.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/reviewservice/build/classes/java/main/hcl/poc/reviewService/ReviewServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/build/classes/java/main/hcl/poc/reviewService/ReviewServiceApplication.class" afterDir="false" />
@@ -66,31 +93,28 @@
       <change beforePath="$PROJECT_DIR$/microservices/reviewservice/build/classes/java/main/hcl/poc/reviewService/repository/ReviewRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/build/classes/java/main/hcl/poc/reviewService/repository/ReviewRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/reviewservice/build/classes/java/main/hcl/poc/reviewService/service/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/build/classes/java/main/hcl/poc/reviewService/service/ReviewService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/reviewservice/build/libs/reviewService-v1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/build/libs/reviewService-v1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/reviewservice/build/tmp/bootJar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/build/tmp/bootJar/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/reviewservice/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/.gradle/7.1/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/.gradle/7.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/.gradle/7.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/.gradle/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/reviewservice/src/main/java/hcl/poc/reviewService/ReviewServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/src/main/java/hcl/poc/reviewservice/ReviewServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/reviewservice/src/main/java/hcl/poc/reviewService/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/src/main/java/hcl/poc/reviewservice/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/reviewservice/src/main/java/hcl/poc/reviewService/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/src/main/java/hcl/poc/reviewservice/model/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/reviewservice/src/main/java/hcl/poc/reviewService/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/src/main/java/hcl/poc/reviewservice/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/reviewservice/src/main/java/hcl/poc/reviewService/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/reviewservice/src/main/java/hcl/poc/reviewservice/service/ReviewService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/userservice/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/userservice/build/classes/java/main/hcl/poc/userService/Controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/build/classes/java/main/hcl/poc/userService/Controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/build/classes/java/main/hcl/poc/userService/Model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/build/classes/java/main/hcl/poc/userService/Model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/build/classes/java/main/hcl/poc/userService/Repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/build/classes/java/main/hcl/poc/userService/Repository/UserRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/userservice/build/classes/java/main/hcl/poc/userService/Service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/build/classes/java/main/hcl/poc/userService/Service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/userservice/build/classes/java/main/hcl/poc/userService/UserServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/build/classes/java/main/hcl/poc/userService/UserServiceApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/userservice/build/libs/userService-v1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/build/libs/userService-v1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/build/resources/main/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/build/resources/main/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/userservice/build/tmp/bootJar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/build/tmp/bootJar/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/userservice/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/util/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/userservice/src/main/java/hcl/poc/userService/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/src/main/java/hcl/poc/userservice/UserServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/userservice/src/main/java/hcl/poc/userService/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/src/main/java/hcl/poc/userservice/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/userservice/src/main/java/hcl/poc/userService/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/src/main/java/hcl/poc/userservice/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/userservice/src/main/java/hcl/poc/userService/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/src/main/java/hcl/poc/userservice/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/userservice/src/main/java/hcl/poc/userService/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/userservice/src/main/java/hcl/poc/userservice/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sonarqube.bash" beforeDir="false" afterPath="$PROJECT_DIR$/sonarqube.bash" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stop.bash" beforeDir="false" afterPath="$PROJECT_DIR$/stop.bash" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/build/classes/java/main/hcl/com/util/NotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/util/build/classes/java/main/hcl/com/util/NotFoundException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/util/build/libs/util-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/util/build/libs/util-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/util/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +129,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -143,11 +170,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../exemples/back-end-step1" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.33371693" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="projectSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -161,13 +188,13 @@
       <recent name="F:\HCL\POC\poc_repo\microservices" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ProductCompositeServiceApplication">
+  <component name="RunManager" selected="Gradle.ReviewControllerTest">
     <configuration name="ProductCompositeServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hcl.poc.productCompositeService.ProductCompositeServiceApplication" />
+      <option name="MAIN_CLASS_NAME" value="hcl.poc.productcompositeservice.ProductCompositeServiceApplication" />
       <module name="poc_repo.microservices.productCompositeService.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hcl.poc.productCompositeService.*" />
+          <option name="PATTERN" value="hcl.poc.productcompositeservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -175,65 +202,97 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hcl.poc.productService.ProductServiceApplication" />
-      <module name="poc_repo.microservices.productService.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hcl.poc.productService.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="ProductControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;ProductControllerTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":microservices:productService:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
-    <configuration name="RecommendationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hcl.poc.recommendationService.RecommendationServiceApplication" />
-      <module name="poc_repo.microservices.recommendationService.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hcl.poc.recommendationService.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="ProductControllerTest.putProduct_successs" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;ProductControllerTest.putProduct_successs&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":microservices:productService:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
-    <configuration name="ReviewServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hcl.poc.reviewService.ReviewServiceApplication" />
-      <module name="poc_repo.microservices.reviewService.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hcl.poc.reviewService.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="RecommendationControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;RecommendationControllerTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":microservices:recommendationService:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
-    <configuration name="UserServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hcl.poc.userService.UserServiceApplication" />
-      <module name="poc_repo.microservices.userService.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hcl.poc.userService.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="ReviewControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;ReviewControllerTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":microservices:reviewService:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UserServiceApplication" />
-        <item itemvalue="Application.ReviewServiceApplication" />
-        <item itemvalue="Application.RecommendationServiceApplication" />
-        <item itemvalue="Application.ProductServiceApplication" />
+        <item itemvalue="Gradle.ReviewControllerTest" />
+        <item itemvalue="Gradle.ProductControllerTest" />
+        <item itemvalue="Gradle.RecommendationControllerTest" />
         <item itemvalue="Application.ProductCompositeServiceApplication" />
+        <item itemvalue="Gradle.ProductControllerTest.putProduct_successs" />
       </list>
     </recent_temporary>
   </component>
@@ -274,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646207763775</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added sonarqube and composite-service">
+      <created>1646427958379</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1646427958379</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -448,7 +514,8 @@
     <MESSAGE value="imlpemented api for user and product" />
     <MESSAGE value="imlpemented api for review and recommendation" />
     <MESSAGE value="Added script for postman tests and more swagger documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added script for postman tests and more swagger documentation" />
+    <MESSAGE value="Added sonarqube and composite-service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sonarqube and composite-service" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

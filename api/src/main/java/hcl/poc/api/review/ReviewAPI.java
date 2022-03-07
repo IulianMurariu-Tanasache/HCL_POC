@@ -1,6 +1,5 @@
 package hcl.poc.api.review;
 
-import hcl.poc.api.user.UserDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -38,7 +37,7 @@ public interface ReviewAPI {
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
     @PostMapping(value = "/review", consumes = "application/json")
-    void addOneReview(@RequestBody ReviewDTO reviewDTO);
+    Mono<ReviewDTO> addOneReview(@RequestBody ReviewDTO reviewDTO);
 
     @Operation(summary = "Update a review by id or add if the review with specified id does not exist")
     @ApiResponses(value = {
@@ -47,7 +46,7 @@ public interface ReviewAPI {
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
     @PutMapping(value = "/review/{id}", consumes = "application/json")
-    void updateReview(@PathVariable("id") Long id, @RequestBody ReviewDTO reviewDTO);
+    Mono<ReviewDTO> updateReview(@PathVariable("id") Long id, @RequestBody ReviewDTO reviewDTO);
 
     @Operation(summary = "Delete a review by id")
     @ApiResponses(value = {

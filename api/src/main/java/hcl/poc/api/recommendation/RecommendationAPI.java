@@ -1,6 +1,5 @@
 package hcl.poc.api.recommendation;
 
-import hcl.poc.api.product.ProductDTO;
 import hcl.poc.api.productcomposite.ProductAggregate;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -39,7 +38,7 @@ public interface RecommendationAPI {
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
     @PostMapping(value = "/recommendation", consumes = "application/json")
-    void addOneRecommendation(@RequestBody RecommendationDTO recommendationDTO);
+    Mono<RecommendationDTO> addOneRecommendation(@RequestBody RecommendationDTO recommendationDTO);
 
     @Operation(summary = "Update a recommendation by id or add a new one if the specified id does not exist")
     @ApiResponses(value = {
@@ -48,7 +47,7 @@ public interface RecommendationAPI {
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
     @PutMapping(value = "/recommendation/{id}", consumes = "application/json")
-    void updateRecommendation(@PathVariable("id") Long id, @RequestBody RecommendationDTO recommendationDTO);
+    Mono<RecommendationDTO> updateRecommendation(@PathVariable("id") Long id, @RequestBody RecommendationDTO recommendationDTO);
 
     @Operation(summary = "Delete one recommendation by id")
     @ApiResponses(value = {
