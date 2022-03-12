@@ -28,12 +28,12 @@ public class ReviewControllerTest {
     @MockBean
     private ReviewService service;
 
-    ReviewDTO review1 = new ReviewDTO(1L, 1L, "First Author", "First Subject", "The content");
-    ReviewDTO review2 = new ReviewDTO(2L, 2L, "Second Author", "Second Subject", "The content");
-    ReviewDTO review3 = new ReviewDTO(3L, 3L, "Third Author", "Third Subject", "The content");
+    private ReviewDTO review1 = new ReviewDTO(1L, 1L, "First Author", "First Subject", "The content");
+    private ReviewDTO review2 = new ReviewDTO(2L, 1L, "Second Author", "Second Subject", "The content");
+    private ReviewDTO review3 = new ReviewDTO(3L, 2L, "Third Author", "Third Subject", "The content");
 
     @Test
-    void getReviewByID_succes() {
+    void getReviewByIDSuccess() {
         Mockito.when(service.getOneReview(review1.getReview_id())).thenReturn(review1);
 
         webClient.get()
@@ -45,7 +45,7 @@ public class ReviewControllerTest {
     }
 
     @Test
-    void getAllReviews_succes() {
+    void getAllReviewsSuccess() {
         List<ReviewDTO> reviewDTOList = new ArrayList(Arrays.asList(review1, review2, review3));
 
         Mockito.when(service.getAllReviews()).thenReturn(reviewDTOList);
@@ -58,7 +58,20 @@ public class ReviewControllerTest {
     }
 
     @Test
-    void postReview_succes() {
+    void getAllReviewsForProductSuccess() {
+        List<ReviewDTO> reviewDTOList = new ArrayList(Arrays.asList(review1, review2));
+
+        Mockito.when(service.getAllReviewsForProduct(1L)).thenReturn(reviewDTOList);
+
+        webClient.get()
+                .uri("/review?product=1")
+                .header(HttpHeaders.ACCEPT, "application/json")
+                .exchange().expectStatus().isOk()
+                .expectBodyList(ReviewDTO.class).isEqualTo(reviewDTOList);
+    }
+
+    @Test
+    void postReviewSuccess() {
         Mockito.when(service.addOneReview(review2)).thenReturn(review2);
 
         webClient.post()
@@ -73,7 +86,7 @@ public class ReviewControllerTest {
     }
 
     @Test
-    void putReview_succes() {
+    void putReviewSuccess() {
         Mockito.when(service.modifyReview(review1.getReview_id(), review3)).thenReturn(review3);
 
         webClient.put()
@@ -88,7 +101,7 @@ public class ReviewControllerTest {
     }
 
     @Test
-    void deleteReview_succes() {
+    void deleteReviewSuccess() {
         Mockito.doNothing().when(service).deleteOneReview(review2.getReview_id());
 
         webClient.delete()

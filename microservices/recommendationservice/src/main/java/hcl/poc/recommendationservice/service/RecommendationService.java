@@ -57,4 +57,15 @@ public class RecommendationService {
         repository.save(modelMapper.map(recommendationDTO,Recommendation.class));
         return recommendationDTO;
     }
+
+    public List<RecommendationDTO> getAllRecommendationsForProduct(Long id) {
+        List<RecommendationDTO> listDTO = new ArrayList<>();
+        List<Recommendation> listRecommendation = repository.findAllByProductId(id);
+
+        for(Recommendation recommendation : listRecommendation){
+            listDTO.add(modelMapper.map(recommendation, RecommendationDTO.class));
+        }
+
+        return listDTO;
+    }
 }

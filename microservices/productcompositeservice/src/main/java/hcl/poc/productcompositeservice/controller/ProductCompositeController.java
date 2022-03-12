@@ -31,11 +31,11 @@ public class ProductCompositeController implements ProductCompositeAPI {
 
     @Override
     public Mono<ProductAggregate> updateProduct(Long id, ProductAggregate product) {
-        return null;
+        return Mono.just(service.updateProductComposite(id, product));
     }
 
     @Override
     public void deleteOneProduct(Long id) {
-
+        service.deleteProductComposite(id);
     }
 }

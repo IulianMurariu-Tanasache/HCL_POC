@@ -25,6 +25,11 @@ public class RecommendationController implements RecommendationAPI {
     }
 
     @Override
+    public Flux<RecommendationDTO> getAllRecommendationsForProduct(Long product) {
+        return Flux.fromIterable(service.getAllRecommendationsForProduct(product));
+    }
+
+    @Override
     public Mono<RecommendationDTO> addOneRecommendation(RecommendationDTO recommendationDTO) {
         return Mono.just(service.addOneRecommendation(recommendationDTO));
     }

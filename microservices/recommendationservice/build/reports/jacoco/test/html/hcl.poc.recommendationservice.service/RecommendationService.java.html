@@ -57,5 +57,16 @@ import java.util.List;
 <span class="nc" id="L57">        repository.save(modelMapper.map(recommendationDTO,Recommendation.class));</span>
 <span class="nc" id="L58">        return recommendationDTO;</span>
     }
+
+    public List&lt;RecommendationDTO&gt; getAllRecommendationsForProduct(Long id) {
+<span class="nc" id="L62">        List&lt;RecommendationDTO&gt; listDTO = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L63">        List&lt;Recommendation&gt; listRecommendation = repository.findAllByProductId(id);</span>
+
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        for(Recommendation recommendation : listRecommendation){</span>
+<span class="nc" id="L66">            listDTO.add(modelMapper.map(recommendation, RecommendationDTO.class));</span>
+<span class="nc" id="L67">        }</span>
+
+<span class="nc" id="L69">        return listDTO;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

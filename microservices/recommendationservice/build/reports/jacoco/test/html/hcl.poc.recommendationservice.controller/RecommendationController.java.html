@@ -25,18 +25,23 @@ import reactor.core.publisher.Mono;
     }
 
     @Override
+    public Flux&lt;RecommendationDTO&gt; getAllRecommendationsForProduct(Long product) {
+<span class="fc" id="L29">        return Flux.fromIterable(service.getAllRecommendationsForProduct(product));</span>
+    }
+
+    @Override
     public Mono&lt;RecommendationDTO&gt; addOneRecommendation(RecommendationDTO recommendationDTO) {
-<span class="fc" id="L29">        return Mono.just(service.addOneRecommendation(recommendationDTO));</span>
+<span class="fc" id="L34">        return Mono.just(service.addOneRecommendation(recommendationDTO));</span>
     }
 
     @Override
     public Mono&lt;RecommendationDTO&gt; updateRecommendation(Long id, RecommendationDTO recommendationDTO) {
-<span class="fc" id="L34">        return Mono.just(service.modifyRecommendation(id, recommendationDTO));</span>
+<span class="fc" id="L39">        return Mono.just(service.modifyRecommendation(id, recommendationDTO));</span>
     }
 
     @Override
     public void deleteOneRecommendation(Long id) {
-<span class="fc" id="L39">        service.deleteOneRecommendation(id);</span>
-<span class="fc" id="L40">    }</span>
+<span class="fc" id="L44">        service.deleteOneRecommendation(id);</span>
+<span class="fc" id="L45">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

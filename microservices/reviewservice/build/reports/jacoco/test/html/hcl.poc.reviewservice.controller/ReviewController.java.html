@@ -25,18 +25,23 @@ import reactor.core.publisher.Mono;
     }
 
     @Override
+    public Flux&lt;ReviewDTO&gt; getAllReviewsForProduct(Long product) {
+<span class="fc" id="L29">        return Flux.fromIterable(service.getAllReviewsForProduct(product));</span>
+    }
+
+    @Override
     public Mono&lt;ReviewDTO&gt; addOneReview(ReviewDTO reviewDTO) {
-<span class="fc" id="L29">        return Mono.just(service.addOneReview(reviewDTO));</span>
+<span class="fc" id="L34">        return Mono.just(service.addOneReview(reviewDTO));</span>
     }
 
     @Override
     public Mono&lt;ReviewDTO&gt; updateReview(Long id, ReviewDTO reviewDTO) {
-<span class="fc" id="L34">        return Mono.just(service.modifyReview(id, reviewDTO));</span>
+<span class="fc" id="L39">        return Mono.just(service.modifyReview(id, reviewDTO));</span>
     }
 
     @Override
     public void deleteOneReview(Long id) {
-<span class="fc" id="L39">        service.deleteOneReview(id);</span>
-<span class="fc" id="L40">    }</span>
+<span class="fc" id="L44">        service.deleteOneReview(id);</span>
+<span class="fc" id="L45">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -54,6 +54,6 @@ public interface ProductCompositeAPI {
                     content = @Content(array = @ArraySchema(schema = @Schema(implementation = ProductAggregate.class)))),
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
-    @DeleteMapping("/composite-product")
+    @DeleteMapping("/composite-product/{id}")
     void deleteOneProduct(@PathVariable("id") Long id);
 }

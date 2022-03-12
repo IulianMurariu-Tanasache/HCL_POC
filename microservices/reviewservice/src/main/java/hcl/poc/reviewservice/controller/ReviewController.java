@@ -25,6 +25,11 @@ public class ReviewController implements ReviewAPI {
     }
 
     @Override
+    public Flux<ReviewDTO> getAllReviewsForProduct(Long product) {
+        return Flux.fromIterable(service.getAllReviewsForProduct(product));
+    }
+
+    @Override
     public Mono<ReviewDTO> addOneReview(ReviewDTO reviewDTO) {
         return Mono.just(service.addOneReview(reviewDTO));
     }

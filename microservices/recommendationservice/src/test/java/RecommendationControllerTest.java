@@ -29,11 +29,11 @@ public class RecommendationControllerTest {
     private RecommendationService service;
 
     private RecommendationDTO recommendation1 = new RecommendationDTO(1L, 1L, "First Author", 3.75, "This is the content");
-    private RecommendationDTO recommendation2 = new RecommendationDTO(2L, 2L, "Second Author", 4.75, "This is the content");
-    private RecommendationDTO recommendation3 = new RecommendationDTO(3L, 3L, "Third Author", 4.11, "This is the content");
+    private RecommendationDTO recommendation2 = new RecommendationDTO(1L, 2L, "Second Author", 4.75, "This is the content");
+    private RecommendationDTO recommendation3 = new RecommendationDTO(2L, 3L, "Third Author", 4.11, "This is the content");
 
     @Test
-    void getRecommendationByID_succes() {
+    void getRecommendationByIDSuccess() {
 
         Mockito.when(service.getOneRecommendation(recommendation1.getRecommendation_id())).thenReturn(recommendation1);
 
@@ -46,7 +46,7 @@ public class RecommendationControllerTest {
     }
 
     @Test
-    void getAllRecommendations_succes(){
+    void getAllRecommendationsSuccess(){
         List<RecommendationDTO> recommendationDTOList = new ArrayList(Arrays.asList(recommendation1,recommendation2,recommendation3));
 
         Mockito.when(service.getAllRecommendations()).thenReturn(recommendationDTOList);
@@ -60,7 +60,21 @@ public class RecommendationControllerTest {
     }
 
     @Test
-    void postRecommendation_succes(){
+    void getAllRecommendationsForProductSuccess(){
+        List<RecommendationDTO> recommendationDTOList = new ArrayList(Arrays.asList(recommendation1,recommendation2));
+
+        Mockito.when(service.getAllRecommendationsForProduct(1L)).thenReturn(recommendationDTOList);
+
+        webClient.get()
+                .uri("/recommendation?product=1")
+                .header(HttpHeaders.ACCEPT, "application/json")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBodyList(RecommendationDTO.class).isEqualTo(recommendationDTOList);
+    }
+
+    @Test
+    void postRecommendationSuccess(){
         Mockito.when(service.addOneRecommendation(recommendation2)).thenReturn(recommendation2);
 
         webClient.post()
@@ -75,7 +89,7 @@ public class RecommendationControllerTest {
     }
 
     @Test
-    void putRecommendation_succes() {
+    void putRecommendationSuccess() {
         Mockito.when(service.modifyRecommendation(recommendation1.getRecommendation_id(), recommendation3)).thenReturn(recommendation3);
 
         webClient.put()
@@ -90,7 +104,7 @@ public class RecommendationControllerTest {
     }
 
     @Test
-    void deleteRecommendation_succes() {
+    void deleteRecommendationSuccess() {
         Mockito.doNothing().when(service).deleteOneRecommendation(recommendation2.getRecommendation_id());
 
         webClient.delete()

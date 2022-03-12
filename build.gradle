@@ -8,8 +8,9 @@ repositories {
 }
 
 subprojects {
-	if (it.name != 'api' && it.name != 'util' && it.name != 'microservices'){
+	if (it.name != 'api' && it.name != 'util'){
 		apply plugin : 'java'
 		test
     }
 }
+

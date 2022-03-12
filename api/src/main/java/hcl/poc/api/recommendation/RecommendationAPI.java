@@ -31,6 +31,9 @@ public interface RecommendationAPI {
     @GetMapping(value = "/recommendation", produces = "application/json")
     Flux<RecommendationDTO> getAllRecommendations();
 
+    @GetMapping(value = "/recommendation", params = "product", produces = "application/json")
+    Flux<RecommendationDTO> getAllRecommendationsForProduct(@RequestParam("product") Long product);
+
     @Operation(summary = "Add a new recommendation")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful operation",

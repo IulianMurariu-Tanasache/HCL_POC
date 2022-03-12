@@ -33,7 +33,7 @@ public class ProductControllerTest {
     ProductDTO p3 = new ProductDTO(3L, "fridge", 20000.14);
 
     @Test
-    void getAllProducts_success() throws Exception {
+    void getAllProductsSuccess() throws Exception {
         List<ProductDTO> products = new ArrayList<>(Arrays.asList(p1, p2, p3));
 
         Mockito.when(service.getAllProducts()).thenReturn(products);
@@ -47,7 +47,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    void getProductByID_success() {
+    void getProductByIDSuccess() {
         Mockito.when(service.getOneProduct(p1.getId())).thenReturn(p1);
 
         webClient.get()
@@ -59,7 +59,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    void postProduct_successs() {
+    void postProductSuccesss() {
         Mockito.when(service.addProduct(p1)).thenReturn(p1);
 
         webClient.post()
@@ -74,7 +74,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    void putProduct_succes() {
+    void putProductSuccess() {
         Mockito.when(service.modifyProduct(p1.getId(),p2)).thenReturn(p2);
 
         webClient.put()
@@ -89,7 +89,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    void deleteProduct_succes() {
+    void deleteProductSuccess() {
         Mockito.doNothing().when(service).deleteProduct(p1.getId());
 
         webClient.delete()

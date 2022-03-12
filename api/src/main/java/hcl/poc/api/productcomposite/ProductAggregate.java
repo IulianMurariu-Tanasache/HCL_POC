@@ -4,6 +4,7 @@ import hcl.poc.api.recommendation.RecommendationDTO;
 import hcl.poc.api.review.ReviewDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -97,8 +98,10 @@ public class ProductAggregate {
         this.id = id;
         this.name = name;
         this.weight = weight;
-        this.recommendationDTOS = recommendationDTOS;
-        this.reviewDTOS = reviewDTOS;
+        this.recommendationDTOS = new ArrayList<>();
+        this.recommendationDTOS.addAll(recommendationDTOS);
+        this.reviewDTOS = new ArrayList<>();
+        this.reviewDTOS.addAll(reviewDTOS);
     }
 
     public ProductAggregate() {

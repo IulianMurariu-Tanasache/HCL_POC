@@ -56,4 +56,15 @@ public class ReviewService {
         repository.save(modelMapper.map(reviewDTO,Review.class));
         return reviewDTO;
     }
+
+    public List<ReviewDTO> getAllReviewsForProduct(Long id) {
+        List<Review> reviewList = repository.findAllByProductId(id);
+        List<ReviewDTO> listDTO = new ArrayList<>();
+
+        for(Review review : reviewList){
+            listDTO.add(modelMapper.map(review, ReviewDTO.class));
+        }
+
+        return listDTO;
+    }
 }

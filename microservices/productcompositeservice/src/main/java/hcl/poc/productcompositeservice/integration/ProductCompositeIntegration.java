@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
@@ -16,8 +15,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.springframework.http.HttpMethod.GET;
 
 @Component
 public class ProductCompositeIntegration {
@@ -47,15 +44,15 @@ public class ProductCompositeIntegration {
 
         LOG.info("{}:{}", productServiceHost, productServicePort);
 
-        productServiceUrl = "http://" + productServiceHost + ":" + productServicePort + "/product/";
-        recommendationServiceUrl = "http://" + recommendationServiceHost + ":" + recommendationServicePort + "/recommendation?productId=";
-        reviewServiceUrl = "http://" + reviewServiceHost + ":" + reviewServicePort + "/review?productId=";
+        productServiceUrl = "http://" + productServiceHost + ":" + productServicePort + "/product";
+        recommendationServiceUrl = "http://" + recommendationServiceHost + ":" + recommendationServicePort + "/recommendation";
+        reviewServiceUrl = "http://" + reviewServiceHost + ":" + reviewServicePort + "/review";
     }
 
     public ProductDTO getProduct(Long productId) {
 
         try {
-            String url = productServiceUrl + productId;
+            String url = productServiceUrl + "/" + productId;
             LOG.debug("Will call getProduct API on URL: {}", url);
 
             ProductDTO product = restTemplate.getForObject(url, ProductDTO.class);
@@ -106,19 +103,15 @@ public class ProductCompositeIntegration {
 //        }
 //    }
 
-    public List<RecommendationDTO> getRecommendations(Long productId) {
+    public List<RecommendationDTO> getRecommendationsForProduct(Long productId) {
 
         try {
-            String url = recommendationServiceUrl + productId;
+            String url = recommendationServiceUrl + "?product=" + productId;
 
             LOG.debug("Will call getRecommendations API on URL: {}", url);
-            List<RecommendationDTO> recommendations = restTemplate
-                    .exchange(url, GET, null, new ParameterizedTypeReference<List<RecommendationDTO>>() {})
-                    .getBody();
+            List<RecommendationDTO> recommendations = Arrays.asList(restTemplate.getForObject(recommendationServiceUrl + "?product=" + productId, RecommendationDTO[].class));
 
-            if (recommendations != null) {
-                LOG.debug("Found {} recommendations for a product with id: {}", recommendations.size(), productId);
-            }
+            LOG.debug("Found {} recommendations for a product with id: {}", recommendations.size(), productId);
             return recommendations;
 
         } catch (Exception ex) {
@@ -127,19 +120,15 @@ public class ProductCompositeIntegration {
         }
     }
 
-    public List<ReviewDTO> getReviews(Long productId) {
+    public List<ReviewDTO> getReviewsForProduct(Long productId) {
 
         try {
-            String url = reviewServiceUrl + productId;
+            String url = reviewServiceUrl + "?product=" + productId;
 
             LOG.debug("Will call getReviews API on URL: {}", url);
-            List<ReviewDTO> reviews = restTemplate
-                    .exchange(url, GET, null, new ParameterizedTypeReference<List<ReviewDTO>>() {})
-                    .getBody();
+            List<ReviewDTO> reviews = Arrays.asList(restTemplate.getForObject(reviewServiceUrl + "?product=" + productId, ReviewDTO[].class));
 
-            if (reviews != null) {
-                LOG.debug("Found {} reviews for a product with id: {}", reviews.size(), productId);
-            }
+            LOG.debug("Found {} reviews for a product with id: {}", reviews.size(), productId);
             return reviews;
 
         } catch (Exception ex) {
@@ -148,12 +137,12 @@ public class ProductCompositeIntegration {
         }
     }
 
-    public void addProduct(ProductDTO productDTO) {
+    public ProductDTO addProduct(ProductDTO productDTO) {
         try {
             String url = productServiceUrl;
 
             LOG.debug("Will call postProduct API on URL: {}", url);
-            restTemplate.postForObject(url, productDTO, ProductDTO.class);
+            return restTemplate.postForObject(url, productDTO, ProductDTO.class);
 
         } catch (Exception ex) {
             LOG.warn("Got an exception while requesting reviews, return zero reviews: {}", ex.getMessage());
@@ -161,12 +150,12 @@ public class ProductCompositeIntegration {
         }
     }
 
-    public void addReview(ReviewDTO reviewDTO) {
+    public ReviewDTO addReview(ReviewDTO reviewDTO) {
         try {
             String url = reviewServiceUrl;
 
             LOG.debug("Will call postReview API on URL: {}", url);
-            restTemplate.postForObject(url, reviewDTO, ReviewDTO.class);
+            return restTemplate.postForObject(url, reviewDTO, ReviewDTO.class);
 
         } catch (Exception ex) {
             LOG.warn("Got an exception while requesting reviews, return zero reviews: {}", ex.getMessage());
@@ -174,12 +163,12 @@ public class ProductCompositeIntegration {
         }
     }
 
-    public void addRecommendation(RecommendationDTO recommendationDTO) {
+    public RecommendationDTO addRecommendation(RecommendationDTO recommendationDTO) {
         try {
             String url = recommendationServiceUrl;
 
             LOG.debug("Will call postRecommendation API on URL: {}", url);
-            restTemplate.postForObject(url, recommendationDTO, RecommendationDTO.class);
+            return restTemplate.postForObject(url, recommendationDTO, RecommendationDTO.class);
 
         } catch (Exception ex) {
             LOG.warn("Got an exception while requesting reviews, return zero reviews: {}", ex.getMessage());
@@ -187,4 +176,50 @@ public class ProductCompositeIntegration {
         }
     }
 
+    public RecommendationDTO addRecommendation(RecommendationDTO recommendationDTO, Long id) {
+        recommendationDTO.setProduct_id(id);
+        return addRecommendation(recommendationDTO);
+    }
+
+    public ReviewDTO addReview(ReviewDTO reviewDTO, Long id) {
+        reviewDTO.setProduct_id(id);
+        return addReview(reviewDTO);
+    }
+
+    public void deleteProduct(Long id){
+        restTemplate.delete(productServiceUrl + "/" + id);
+    }
+
+    public void deleteRecommendation(Long id){
+        restTemplate.delete(recommendationServiceUrl + "/" + id);
+    }
+
+    public void deleteReview(Long id){
+        restTemplate.delete(reviewServiceUrl + "/" + id);
+    }
+
+    public ProductDTO updateProduct(ProductDTO productDTO, Long id){
+        restTemplate.put(productServiceUrl + "/" + id, productDTO);
+        return restTemplate.getForObject(productServiceUrl + "/" + id, ProductDTO.class);
+    }
+
+    public ReviewDTO updateReview(ReviewDTO reviewDTO, Long id){
+        restTemplate.put(reviewServiceUrl + "/" + id, reviewDTO);
+        return restTemplate.getForObject(reviewServiceUrl + "/" + id, ReviewDTO.class);
+    }
+
+    public RecommendationDTO updateRecommendation(RecommendationDTO recommendationDTO, Long id){
+        restTemplate.put(recommendationServiceUrl + "/" + id, recommendationDTO);
+        return restTemplate.getForObject(recommendationServiceUrl + "/" + id, RecommendationDTO.class);
+    }
+
+    public RecommendationDTO updateRecommendation(RecommendationDTO recommendationDTO, Long recommendation_id, Long id) {
+        recommendationDTO.setProduct_id(id);
+        return updateRecommendation(recommendationDTO, recommendation_id);
+    }
+
+    public ReviewDTO updateReview(ReviewDTO reviewDTO, Long review_id, Long id) {
+        reviewDTO.setProduct_id(id);
+        return updateReview(reviewDTO, review_id);
+    }
 }

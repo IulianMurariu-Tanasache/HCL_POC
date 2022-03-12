@@ -5,23 +5,13 @@ pluginManagement {
         //mavenLocal()
     }
 }
-/*
-repositories {
-    maven { url = uri("https://repo.spring.io/release") }
-}
-*/
 
 include 'api'
 include 'util'
 include 'microservices'
 include 'microservices:productService'
-//findProject(':microservices:productService')?.name = 'productService'
 include 'microservices:userService'
-//findProject(':microservices:userService')?.name = 'userService'
 include 'microservices:productCompositeService'
-//findProject(':microservices:productCompositeService')?.name = 'productCompositeService'
 include 'microservices:reviewService'
-//findProject(':microservices:reviewService')?.name = 'reviewService'
 include 'microservices:recommendationService'
-//findProject(':microservices:recommendationService')?.name = 'recommendationService'
 

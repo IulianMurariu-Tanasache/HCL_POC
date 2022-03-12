@@ -35,14 +35,14 @@ public class ProductCompositeService {
 
     public ProductAggregate getProductComposite(Long id){
         LOG.info("getProductComposite");
-        return createProductAggregate(integration.getProduct(id), integration.getReviews(id), integration.getRecommendations(id));
+        return createProductAggregate(integration.getProduct(id), integration.getReviewsForProduct(id), integration.getRecommendationsForProduct(id));
     }
 
     public List<ProductAggregate> getAllProductComposite(){
         List<ProductAggregate> productAggregates = new ArrayList<>();
 
         for(ProductDTO product : integration.getProducts()) {
-            productAggregates.add(createProductAggregate(product, integration.getReviews(product.getId()), integration.getRecommendations(product.getId())));
+            productAggregates.add(createProductAggregate(product, integration.getReviewsForProduct(product.getId()), integration.getRecommendationsForProduct(product.getId())));
         }
 
         return productAggregates;
@@ -52,21 +52,46 @@ public class ProductCompositeService {
 
         ProductDTO productDTO = new ProductDTO(productAggregate.getId(), productAggregate.getName(), productAggregate.getWeight());
 
-        integration.addProduct(productDTO);
+        ProductDTO product = integration.addProduct(productDTO);
+        List<RecommendationDTO> recommendationDTOS = new ArrayList<>();
+        List<ReviewDTO> reviewDTOs = new ArrayList<>();
         for(RecommendationDTO recommendationDTO : productAggregate.getRecommendations()) {
-            integration.addRecommendation(recommendationDTO);
+            recommendationDTOS.add(integration.addRecommendation(recommendationDTO, productAggregate.getId()));
         }
         for(ReviewDTO reviewDTO : productAggregate.getReviews()) {
-            integration.addReview(reviewDTO);
+            reviewDTOs.add(integration.addReview(reviewDTO, productAggregate.getId()));
         }
-        return productAggregate;
+
+        return createProductAggregate(product, reviewDTOs, recommendationDTOS);
     }
 
-    public void updateProductComposite(){
+    public ProductAggregate updateProductComposite(Long id, ProductAggregate productAggregate){
+        //TODO make this either add new product, reviews, recommendations or update existing one -> also do this in integration
+        //TODO remake tests for updates for integration and service and controller
+        ProductDTO newProductDTO = new ProductDTO(productAggregate.getId(), productAggregate.getName(), productAggregate.getWeight());
+        ProductDTO product = integration.updateProduct(newProductDTO, id);
 
+        List<RecommendationDTO> recommendationDTOS = new ArrayList<>();
+        List<ReviewDTO> reviewDTOs = new ArrayList<>();
+
+        for(RecommendationDTO recommendationDTO : integration.getRecommendationsForProduct(id)) {
+            recommendationDTOS.add(integration.updateRecommendation(recommendationDTO, recommendationDTO.getRecommendation_id(), newProductDTO.getId()));
+        }
+        for(ReviewDTO reviewDTO : productAggregate.getReviews()) {
+            reviewDTOs.add(integration.updateReview(reviewDTO, reviewDTO.getReview_id(), newProductDTO.getId()));
+        }
+
+        return createProductAggregate(product, reviewDTOs, recommendationDTOS);
     }
 
-    public void deleteProductComposite(){
+    public void deleteProductComposite(Long id){
 
+        integration.deleteProduct(id);
+
+        for(RecommendationDTO recommendationDTO : integration.getRecommendationsForProduct(id))
+            integration.deleteRecommendation(recommendationDTO.getRecommendation_id());
+
+        for(ReviewDTO reviewDTO : integration.getReviewsForProduct(id))
+            integration.deleteReview(reviewDTO.getReview_id());
     }
 }

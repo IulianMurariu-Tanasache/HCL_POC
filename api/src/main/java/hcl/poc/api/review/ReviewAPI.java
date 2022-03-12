@@ -30,6 +30,9 @@ public interface ReviewAPI {
     @GetMapping(value = "/review", produces = "application/json")
     Flux<ReviewDTO> getAllReviews();
 
+    @GetMapping(value = "/review", params = "product",produces = "application/json")
+    Flux<ReviewDTO> getAllReviewsForProduct(@RequestParam("product") Long product);
+
     @Operation(summary = "Add a new review")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful operation",
