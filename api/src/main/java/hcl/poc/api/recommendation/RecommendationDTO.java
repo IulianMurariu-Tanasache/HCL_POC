@@ -23,7 +23,7 @@ public class RecommendationDTO {
     private double rate;
 
     @Schema(description = "The content of the recommendation.",
-            example = "This product works well", required = false)
+            example = "This product works well")
     private String content;
 
     public RecommendationDTO(){

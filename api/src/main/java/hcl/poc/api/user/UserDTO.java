@@ -11,7 +11,7 @@ public class UserDTO {
     private Long id;
 
     @Schema(description = "Email of the user.",
-            example = "email@domain.com", required = false)
+            example = "email@domain.com")
     private String email;
 
     @Schema(description = "The user name.",
@@ -27,11 +27,11 @@ public class UserDTO {
     private boolean isAdmin;
 
     @Schema(description = "Phone number of the user.",
-            example = "0745678923", required = false)
+            example = "0745678923")
     private String phone;
 
     @Schema(description = "The user's addres.",
-            example = "Country, City, Street, No.", required = false)
+            example = "Country, City, Street, No.")
     private String address;
 
     @Override

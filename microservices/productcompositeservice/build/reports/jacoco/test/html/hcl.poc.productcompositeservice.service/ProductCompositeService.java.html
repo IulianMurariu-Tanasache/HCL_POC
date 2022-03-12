@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductCompositeService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">productCompositeService</a> &gt; <a href="index.source.html" class="el_package">hcl.poc.productcompositeservice.service</a> &gt; <span class="el_source">ProductCompositeService.java</span></div><h1>ProductCompositeService.java</h1><pre class="source lang-java linenums">package hcl.poc.productcompositeservice.service;
+
+import hcl.poc.api.product.ProductDTO;
+import hcl.poc.api.productcomposite.ProductAggregate;
+import hcl.poc.api.recommendation.RecommendationDTO;
+import hcl.poc.api.review.ReviewDTO;
+import hcl.poc.productcompositeservice.integration.ProductCompositeIntegration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+<span class="fc" id="L17">public class ProductCompositeService {</span>
+
+    @Autowired
+    private ProductCompositeIntegration integration;
+
+<span class="fc" id="L22">    private static final Logger LOG = LoggerFactory.getLogger(ProductCompositeService.class);</span>
+
+    public ProductAggregate createProductAggregate(ProductDTO product, List&lt;ReviewDTO&gt; reviews, List&lt;RecommendationDTO&gt; recommendations)
+    {
+<span class="fc" id="L26">        ProductAggregate productAggregate = new ProductAggregate();</span>
+<span class="fc" id="L27">        productAggregate.setId(product.getId());</span>
+<span class="fc" id="L28">        productAggregate.setName(product.getName());</span>
+<span class="fc" id="L29">        productAggregate.setWeight(product.getWeight());</span>
+<span class="fc" id="L30">        productAggregate.setRecommendations(recommendations);</span>
+<span class="fc" id="L31">        productAggregate.setReviews(reviews);</span>
+<span class="fc" id="L32">        LOG.info(&quot;returning productAggregate&quot;);</span>
+<span class="fc" id="L33">        return productAggregate;</span>
+    }
+
+    public ProductAggregate getProductComposite(Long id){
+<span class="fc" id="L37">        LOG.info(&quot;getProductComposite&quot;);</span>
+<span class="fc" id="L38">        return createProductAggregate(integration.getProduct(id), integration.getReviewsForProduct(id), integration.getRecommendationsForProduct(id));</span>
+    }
+
+    public List&lt;ProductAggregate&gt; getAllProductComposite(){
+<span class="fc" id="L42">        List&lt;ProductAggregate&gt; productAggregates = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        for(ProductDTO product : integration.getProducts()) {</span>
+<span class="fc" id="L45">            productAggregates.add(createProductAggregate(product, integration.getReviewsForProduct(product.getId()), integration.getRecommendationsForProduct(product.getId())));</span>
+<span class="fc" id="L46">        }</span>
+
+<span class="fc" id="L48">        return productAggregates;</span>
+    }
+
+    public ProductAggregate addProductComposite(ProductAggregate productAggregate){
+
+<span class="fc" id="L53">        ProductDTO productDTO = new ProductDTO(productAggregate.getId(), productAggregate.getName(), productAggregate.getWeight());</span>
+
+<span class="fc" id="L55">        ProductDTO product = integration.addProduct(productDTO);</span>
+<span class="fc" id="L56">        List&lt;RecommendationDTO&gt; recommendationDTOS = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L57">        List&lt;ReviewDTO&gt; reviewDTOs = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        for(RecommendationDTO recommendationDTO : productAggregate.getRecommendations()) {</span>
+<span class="fc" id="L59">            recommendationDTOS.add(integration.addRecommendation(recommendationDTO, productAggregate.getId()));</span>
+<span class="fc" id="L60">        }</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        for(ReviewDTO reviewDTO : productAggregate.getReviews()) {</span>
+<span class="fc" id="L62">            reviewDTOs.add(integration.addReview(reviewDTO, productAggregate.getId()));</span>
+<span class="fc" id="L63">        }</span>
+
+<span class="fc" id="L65">        return createProductAggregate(product, reviewDTOs, recommendationDTOS);</span>
+    }
+
+    public ProductAggregate updateProductComposite(Long id, ProductAggregate productAggregate){
+        //TODO make this either add new product, reviews, recommendations or update existing one -&gt; also do this in integration
+        //TODO remake tests for updates for integration and service and controller
+<span class="nc" id="L71">        ProductDTO newProductDTO = new ProductDTO(productAggregate.getId(), productAggregate.getName(), productAggregate.getWeight());</span>
+<span class="nc" id="L72">        ProductDTO product = integration.updateProduct(newProductDTO, id);</span>
+
+<span class="nc" id="L74">        List&lt;RecommendationDTO&gt; recommendationDTOS = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L75">        List&lt;ReviewDTO&gt; reviewDTOs = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        for(RecommendationDTO recommendationDTO : integration.getRecommendationsForProduct(id)) {</span>
+<span class="nc" id="L78">            recommendationDTOS.add(integration.updateRecommendation(recommendationDTO, recommendationDTO.getRecommendation_id(), newProductDTO.getId()));</span>
+<span class="nc" id="L79">        }</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        for(ReviewDTO reviewDTO : productAggregate.getReviews()) {</span>
+<span class="nc" id="L81">            reviewDTOs.add(integration.updateReview(reviewDTO, reviewDTO.getReview_id(), newProductDTO.getId()));</span>
+<span class="nc" id="L82">        }</span>
+
+<span class="nc" id="L84">        return createProductAggregate(product, reviewDTOs, recommendationDTOS);</span>
+    }
+
+    public void deleteProductComposite(Long id){
+
+<span class="fc" id="L89">        integration.deleteProduct(id);</span>
+
+<span class="fc bfc" id="L91" title="All 2 branches covered.">        for(RecommendationDTO recommendationDTO : integration.getRecommendationsForProduct(id))</span>
+<span class="fc" id="L92">            integration.deleteRecommendation(recommendationDTO.getRecommendation_id());</span>
+
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        for(ReviewDTO reviewDTO : integration.getReviewsForProduct(id))</span>
+<span class="fc" id="L95">            integration.deleteReview(reviewDTO.getReview_id());</span>
+<span class="fc" id="L96">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

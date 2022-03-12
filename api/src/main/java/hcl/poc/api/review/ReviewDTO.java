@@ -23,7 +23,7 @@ public class ReviewDTO {
     private String subject;
 
     @Schema(description = "The content of the review.",
-            example = "This product is good", required = false)
+            example = "This product is good")
     private String content;
 
     @Override

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductCompositeIntegration.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">productCompositeService</a> &gt; <a href="index.source.html" class="el_package">hcl.poc.productcompositeservice.integration</a> &gt; <span class="el_source">ProductCompositeIntegration.java</span></div><h1>ProductCompositeIntegration.java</h1><pre class="source lang-java linenums">package hcl.poc.productcompositeservice.integration;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import hcl.poc.api.product.ProductDTO;
+import hcl.poc.api.recommendation.RecommendationDTO;
+import hcl.poc.api.review.ReviewDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+@Component
+public class ProductCompositeIntegration {
+
+<span class="fc" id="L22">    private static final Logger LOG = LoggerFactory.getLogger(ProductCompositeIntegration.class);</span>
+
+    private final RestTemplate restTemplate;
+    private final ObjectMapper mapper;
+
+    private final String productServiceUrl;
+    private final String recommendationServiceUrl;
+    private final String reviewServiceUrl;
+
+    @Autowired
+    public ProductCompositeIntegration(
+            RestTemplate restTemplate,
+            ObjectMapper mapper,
+            @Value(&quot;${app.product-service.host}&quot;) String productServiceHost,
+            @Value(&quot;${app.product-service.port}&quot;) int productServicePort,
+            @Value(&quot;${app.recommendation-service.host}&quot;) String recommendationServiceHost,
+            @Value(&quot;${app.recommendation-service.port}&quot;) int recommendationServicePort,
+            @Value(&quot;${app.review-service.host}&quot;) String reviewServiceHost,
+<span class="fc" id="L40">            @Value(&quot;${app.review-service.port}&quot;) int reviewServicePort) {</span>
+
+<span class="fc" id="L42">        this.restTemplate = restTemplate;</span>
+<span class="fc" id="L43">        this.mapper = mapper;</span>
+
+<span class="fc" id="L45">        LOG.info(&quot;{}:{}&quot;, productServiceHost, productServicePort);</span>
+
+<span class="fc" id="L47">        productServiceUrl = &quot;http://&quot; + productServiceHost + &quot;:&quot; + productServicePort + &quot;/product&quot;;</span>
+<span class="fc" id="L48">        recommendationServiceUrl = &quot;http://&quot; + recommendationServiceHost + &quot;:&quot; + recommendationServicePort + &quot;/recommendation&quot;;</span>
+<span class="fc" id="L49">        reviewServiceUrl = &quot;http://&quot; + reviewServiceHost + &quot;:&quot; + reviewServicePort + &quot;/review&quot;;</span>
+<span class="fc" id="L50">    }</span>
+
+    public ProductDTO getProduct(Long productId) {
+
+        try {
+<span class="fc" id="L55">            String url = productServiceUrl + &quot;/&quot; + productId;</span>
+<span class="fc" id="L56">            LOG.debug(&quot;Will call getProduct API on URL: {}&quot;, url);</span>
+
+<span class="fc" id="L58">            ProductDTO product = restTemplate.getForObject(url, ProductDTO.class);</span>
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">            if (product != null) {</span>
+<span class="fc" id="L60">                LOG.debug(&quot;Found a product with id: {}&quot;, product.getId());</span>
+            }
+
+<span class="fc" id="L63">            return product;</span>
+
+<span class="nc" id="L65">        } catch (HttpClientErrorException ex) {</span>
+
+<span class="nc" id="L67">            switch (ex.getStatusCode()) {</span>
+//                case NOT_FOUND:
+//                    throw new NotFoundException(getErrorMessage(ex));
+//
+//                case UNPROCESSABLE_ENTITY:
+//                    throw new InvalidInputException(getErrorMessage(ex));
+
+                default:
+<span class="nc" id="L75">                    LOG.warn(&quot;Got an unexpected HTTP error: {}, will rethrow it&quot;, ex.getStatusCode());</span>
+<span class="nc" id="L76">                    LOG.warn(&quot;Error body: {}&quot;, ex.getResponseBodyAsString());</span>
+<span class="nc" id="L77">                    throw ex;</span>
+            }
+        }
+    }
+
+    public List&lt;ProductDTO&gt; getProducts(){
+        try {
+            List&lt;ProductDTO&gt; productDTOS;
+
+<span class="fc" id="L86">            String url = productServiceUrl;</span>
+<span class="fc" id="L87">            LOG.debug(&quot;Will call getProducts API on URL: {}&quot;, url);</span>
+
+<span class="fc" id="L89">            productDTOS = Arrays.asList(restTemplate.getForObject(url, ProductDTO[].class));</span>
+
+<span class="fc" id="L91">            return productDTOS;</span>
+<span class="nc" id="L92">        } catch (Exception e){</span>
+<span class="nc" id="L93">            LOG.warn(&quot;Got an unexpected HTTP error: {}, will rethrow it&quot;, 0);</span>
+<span class="nc" id="L94">            return new ArrayList&lt;&gt;();</span>
+        }
+    }
+
+//    private String getErrorMessage(HttpClientErrorException ex) {
+//        try {
+//            return mapper.readValue(ex.getResponseBodyAsString(), HttpErrorInfo.class).getMessage();
+//        } catch (IOException ioex) {
+//            return ex.getMessage();
+//        }
+//    }
+
+    public List&lt;RecommendationDTO&gt; getRecommendationsForProduct(Long productId) {
+
+        try {
+<span class="fc" id="L109">            String url = recommendationServiceUrl + &quot;?product=&quot; + productId;</span>
+
+<span class="fc" id="L111">            LOG.debug(&quot;Will call getRecommendations API on URL: {}&quot;, url);</span>
+<span class="fc" id="L112">            List&lt;RecommendationDTO&gt; recommendations = Arrays.asList(restTemplate.getForObject(recommendationServiceUrl + &quot;?product=&quot; + productId, RecommendationDTO[].class));</span>
+
+<span class="fc" id="L114">            LOG.debug(&quot;Found {} recommendations for a product with id: {}&quot;, recommendations.size(), productId);</span>
+<span class="fc" id="L115">            return recommendations;</span>
+
+<span class="nc" id="L117">        } catch (Exception ex) {</span>
+<span class="nc" id="L118">            LOG.warn(&quot;Got an exception while requesting recommendations, return zero recommendations: {}&quot;, ex.getMessage());</span>
+<span class="nc" id="L119">            return new ArrayList&lt;&gt;();</span>
+        }
+    }
+
+    public List&lt;ReviewDTO&gt; getReviewsForProduct(Long productId) {
+
+        try {
+<span class="fc" id="L126">            String url = reviewServiceUrl + &quot;?product=&quot; + productId;</span>
+
+<span class="fc" id="L128">            LOG.debug(&quot;Will call getReviews API on URL: {}&quot;, url);</span>
+<span class="fc" id="L129">            List&lt;ReviewDTO&gt; reviews = Arrays.asList(restTemplate.getForObject(reviewServiceUrl + &quot;?product=&quot; + productId, ReviewDTO[].class));</span>
+
+<span class="fc" id="L131">            LOG.debug(&quot;Found {} reviews for a product with id: {}&quot;, reviews.size(), productId);</span>
+<span class="fc" id="L132">            return reviews;</span>
+
+<span class="nc" id="L134">        } catch (Exception ex) {</span>
+<span class="nc" id="L135">            LOG.warn(&quot;Got an exception while requesting reviews, return zero reviews: {}&quot;, ex.getMessage());</span>
+<span class="nc" id="L136">            return new ArrayList&lt;&gt;();</span>
+        }
+    }
+
+    public ProductDTO addProduct(ProductDTO productDTO) {
+        try {
+<span class="fc" id="L142">            String url = productServiceUrl;</span>
+
+<span class="fc" id="L144">            LOG.debug(&quot;Will call postProduct API on URL: {}&quot;, url);</span>
+<span class="fc" id="L145">            return restTemplate.postForObject(url, productDTO, ProductDTO.class);</span>
+
+<span class="nc" id="L147">        } catch (Exception ex) {</span>
+<span class="nc" id="L148">            LOG.warn(&quot;Got an exception while requesting reviews, return zero reviews: {}&quot;, ex.getMessage());</span>
+<span class="nc" id="L149">            throw ex;</span>
+        }
+    }
+
+    public ReviewDTO addReview(ReviewDTO reviewDTO) {
+        try {
+<span class="fc" id="L155">            String url = reviewServiceUrl;</span>
+
+<span class="fc" id="L157">            LOG.debug(&quot;Will call postReview API on URL: {}&quot;, url);</span>
+<span class="fc" id="L158">            return restTemplate.postForObject(url, reviewDTO, ReviewDTO.class);</span>
+
+<span class="nc" id="L160">        } catch (Exception ex) {</span>
+<span class="nc" id="L161">            LOG.warn(&quot;Got an exception while requesting reviews, return zero reviews: {}&quot;, ex.getMessage());</span>
+<span class="nc" id="L162">            throw ex;</span>
+        }
+    }
+
+    public RecommendationDTO addRecommendation(RecommendationDTO recommendationDTO) {
+        try {
+<span class="fc" id="L168">            String url = recommendationServiceUrl;</span>
+
+<span class="fc" id="L170">            LOG.debug(&quot;Will call postRecommendation API on URL: {}&quot;, url);</span>
+<span class="fc" id="L171">            return restTemplate.postForObject(url, recommendationDTO, RecommendationDTO.class);</span>
+
+<span class="nc" id="L173">        } catch (Exception ex) {</span>
+<span class="nc" id="L174">            LOG.warn(&quot;Got an exception while requesting reviews, return zero reviews: {}&quot;, ex.getMessage());</span>
+<span class="nc" id="L175">            throw ex;</span>
+        }
+    }
+
+    public RecommendationDTO addRecommendation(RecommendationDTO recommendationDTO, Long id) {
+<span class="nc" id="L180">        recommendationDTO.setProduct_id(id);</span>
+<span class="nc" id="L181">        return addRecommendation(recommendationDTO);</span>
+    }
+
+    public ReviewDTO addReview(ReviewDTO reviewDTO, Long id) {
+<span class="nc" id="L185">        reviewDTO.setProduct_id(id);</span>
+<span class="nc" id="L186">        return addReview(reviewDTO);</span>
+    }
+
+    public void deleteProduct(Long id){
+<span class="fc" id="L190">        restTemplate.delete(productServiceUrl + &quot;/&quot; + id);</span>
+<span class="fc" id="L191">    }</span>
+
+    public void deleteRecommendation(Long id){
+<span class="fc" id="L194">        restTemplate.delete(recommendationServiceUrl + &quot;/&quot; + id);</span>
+<span class="fc" id="L195">    }</span>
+
+    public void deleteReview(Long id){
+<span class="fc" id="L198">        restTemplate.delete(reviewServiceUrl + &quot;/&quot; + id);</span>
+<span class="fc" id="L199">    }</span>
+
+    public ProductDTO updateProduct(ProductDTO productDTO, Long id){
+<span class="fc" id="L202">        restTemplate.put(productServiceUrl + &quot;/&quot; + id, productDTO);</span>
+<span class="fc" id="L203">        return restTemplate.getForObject(productServiceUrl + &quot;/&quot; + id, ProductDTO.class);</span>
+    }
+
+    public ReviewDTO updateReview(ReviewDTO reviewDTO, Long id){
+<span class="fc" id="L207">        restTemplate.put(reviewServiceUrl + &quot;/&quot; + id, reviewDTO);</span>
+<span class="fc" id="L208">        return restTemplate.getForObject(reviewServiceUrl + &quot;/&quot; + id, ReviewDTO.class);</span>
+    }
+
+    public RecommendationDTO updateRecommendation(RecommendationDTO recommendationDTO, Long id){
+<span class="fc" id="L212">        restTemplate.put(recommendationServiceUrl + &quot;/&quot; + id, recommendationDTO);</span>
+<span class="fc" id="L213">        return restTemplate.getForObject(recommendationServiceUrl + &quot;/&quot; + id, RecommendationDTO.class);</span>
+    }
+
+    public RecommendationDTO updateRecommendation(RecommendationDTO recommendationDTO, Long recommendation_id, Long id) {
+<span class="nc" id="L217">        recommendationDTO.setProduct_id(id);</span>
+<span class="nc" id="L218">        return updateRecommendation(recommendationDTO, recommendation_id);</span>
+    }
+
+    public ReviewDTO updateReview(ReviewDTO reviewDTO, Long review_id, Long id) {
+<span class="nc" id="L222">        reviewDTO.setProduct_id(id);</span>
+<span class="nc" id="L223">        return updateReview(reviewDTO, review_id);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

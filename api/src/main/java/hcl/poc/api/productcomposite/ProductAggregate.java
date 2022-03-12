@@ -22,12 +22,12 @@ public class ProductAggregate {
             example = "250.22", required = true)
     private double weight;
 
-    @Schema(description = "A list of recommendations for this product.",
-            required = false)
+    @Schema(description = "A list of recommendations for this product."
+    )
     private List<RecommendationDTO> recommendationDTOS;
 
-    @Schema(description = "A list of reviews for this product.",
-            required = false)
+    @Schema(description = "A list of reviews for this product."
+    )
     private List<ReviewDTO> reviewDTOS;
 
     @Override
