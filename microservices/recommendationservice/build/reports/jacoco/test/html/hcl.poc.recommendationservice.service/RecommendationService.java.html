@@ -23,10 +23,10 @@ import java.util.List;
     public RecommendationDTO modifyRecommendation(Long id, RecommendationDTO newRecommendation){
 <span class="nc" id="L24">        Recommendation recommendation = repository.getById(id);</span>
 
-<span class="nc" id="L26">        recommendation.setRecommendation_id(id);</span>
+<span class="nc" id="L26">        recommendation.setRecommendationId(id);</span>
 <span class="nc" id="L27">        recommendation.setAuthor(newRecommendation.getAuthor());</span>
 <span class="nc" id="L28">        recommendation.setContent(newRecommendation.getContent());</span>
-<span class="nc" id="L29">        recommendation.setProduct_id(newRecommendation.getProduct_id());</span>
+<span class="nc" id="L29">        recommendation.setProductId(newRecommendation.getProductId());</span>
 <span class="nc" id="L30">        recommendation.setRate(newRecommendation.getRate());</span>
 
 <span class="nc" id="L32">        repository.save(recommendation);</span>

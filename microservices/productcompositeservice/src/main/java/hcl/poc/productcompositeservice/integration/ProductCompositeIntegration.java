@@ -177,12 +177,12 @@ public class ProductCompositeIntegration {
     }
 
     public RecommendationDTO addRecommendation(RecommendationDTO recommendationDTO, Long id) {
-        recommendationDTO.setProduct_id(id);
+        recommendationDTO.setProductId(id);
         return addRecommendation(recommendationDTO);
     }
 
     public ReviewDTO addReview(ReviewDTO reviewDTO, Long id) {
-        reviewDTO.setProduct_id(id);
+        reviewDTO.setProductId(id);
         return addReview(reviewDTO);
     }
 
@@ -214,12 +214,12 @@ public class ProductCompositeIntegration {
     }
 
     public RecommendationDTO updateRecommendation(RecommendationDTO recommendationDTO, Long recommendation_id, Long id) {
-        recommendationDTO.setProduct_id(id);
+        recommendationDTO.setProductId(id);
         return updateRecommendation(recommendationDTO, recommendation_id);
     }
 
     public ReviewDTO updateReview(ReviewDTO reviewDTO, Long review_id, Long id) {
-        reviewDTO.setProduct_id(id);
+        reviewDTO.setProductId(id);
         return updateReview(reviewDTO, review_id);
     }
 }

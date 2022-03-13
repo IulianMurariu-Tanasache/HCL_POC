@@ -1,0 +1,64 @@
+version: "2.1"
+
+services:
+  product:
+    build: microservices/productservice
+    mem_limit: 512m
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - poc-network
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+
+  product-composite:
+    build: microservices/productcompositeservice
+    mem_limit: 512m
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+      - "8080:8080"
+    networks:
+      - poc-network
+
+  review:
+    build: microservices/reviewservice
+    mem_limit: 512m
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - poc-network
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+
+  recommendation:
+    build: microservices/recommendationservice
+    mem_limit: 512m
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - poc-network
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+
+
+  mysqldb:
+    image: mysql:8
+    networks:
+      - poc-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=poc
+      - MYSQL_PASSWORD=poc
+    volumes:
+      - .docker/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+    healthcheck:
+      test: ["CMD", 'mysqladmin', 'ping', '-h', 'localhost', '-u', 'root', '-p root' ]
+      timeout: 30s
+      retries: 10
+
+networks:
+  poc-network:

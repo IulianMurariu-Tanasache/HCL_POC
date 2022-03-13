@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.029s</div>
+<div class="counter">0.034s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,17 +79,17 @@
 </thead>
 <tr>
 <td class="success">addProductCompositeTest()</td>
-<td class="success">0.005s</td>
+<td class="success">0.008s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">createProductAggregateTest()</td>
-<td class="success">0.004s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">deleteProductCompositeTest()</td>
-<td class="success">0.009s</td>
+<td class="success">0.012s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -107,13 +107,14 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2022-03-12 14:20:56.371  INFO 7036 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2022-03-12 14:20:56.373  INFO 7036 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@10f6fd03, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@26e1ed62, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3f06d094, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6d2bafc, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@216b51c0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@8c82272, org.springframework.test.context.event.EventPublishingTestExecutionListener@143d18f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@12558e01, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@69cb38da, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@20595c23, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3f893e0e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@1129a78, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@312f6f68]
-2022-03-12 14:20:57.580  INFO 7036 --- [    Test worker] h.p.p.service.ProductCompositeService    : returning productAggregate
-2022-03-12 14:20:57.587  INFO 7036 --- [    Test worker] h.p.p.service.ProductCompositeService    : getProductComposite
-2022-03-12 14:20:57.588  INFO 7036 --- [    Test worker] h.p.p.service.ProductCompositeService    : returning productAggregate
-2022-03-12 14:20:57.594  INFO 7036 --- [    Test worker] h.p.p.service.ProductCompositeService    : returning productAggregate
-2022-03-12 14:20:57.600  INFO 7036 --- [    Test worker] h.p.p.service.ProductCompositeService    : returning productAggregate
+<pre>2022-03-13 16:57:55.708  INFO 3396 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-03-13 16:57:55.709  INFO 3396 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fad09cb, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6f991cc8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@74188d06, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3330b8b7, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@44240c4b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@637c375b, org.springframework.test.context.event.EventPublishingTestExecutionListener@53bce68f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@65ff194f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@15d17ef, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3993e70, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@37a52812, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@2a8d6ac8, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4386f219]
+ProductAggregate{id=1, name='milk', weight=20.55, recommendationList=[RecommendationDTO{product_id=1, recommendation_id=1, author='First Author', rate=3.75, content='This is the content'}, RecommendationDTO{product_id=1, recommendation_id=2, author='Second Author', rate=4.75, content='This is the content'}], reviewList=[ReviewDTO{review_id=1, product_id=1, author='First Author', subject='First Subject', content='The content'}, ReviewDTO{review_id=2, product_id=1, author='Second Author', subject='Second Subject', content='The content'}]}
+2022-03-13 16:57:56.867  INFO 3396 --- [    Test worker] h.p.p.service.ProductCompositeService    : returning productAggregate
+2022-03-13 16:57:56.874  INFO 3396 --- [    Test worker] h.p.p.service.ProductCompositeService    : getProductComposite
+2022-03-13 16:57:56.875  INFO 3396 --- [    Test worker] h.p.p.service.ProductCompositeService    : returning productAggregate
+2022-03-13 16:57:56.882  INFO 3396 --- [    Test worker] h.p.p.service.ProductCompositeService    : returning productAggregate
+2022-03-13 16:57:56.886  INFO 3396 --- [    Test worker] h.p.p.service.ProductCompositeService    : returning productAggregate
 </pre>
 </span>
 </div>
@@ -125,7 +126,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.1</a> at Mar 12, 2022, 2:20:57 PM</p>
+<a href="http://www.gradle.org">Gradle 7.1</a> at Mar 13, 2022, 4:57:57 PM</p>
 </div>
 </div>
 </body>

@@ -17,8 +17,8 @@ public class Recommendation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long recommendation_id;
-    private Long product_id;
+    private Long recommendationId;
+    private Long productId;
     private String author;
     private double rate;
     private String content;

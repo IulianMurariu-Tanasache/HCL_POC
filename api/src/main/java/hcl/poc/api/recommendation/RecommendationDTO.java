@@ -1,5 +1,7 @@
 package hcl.poc.api.recommendation;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import hcl.poc.api.productcomposite.ProductAggregate;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Objects;
@@ -8,11 +10,11 @@ public class RecommendationDTO {
 
     @Schema(description = "Unique identifier of the recommendation.",
             example = "1", required = true)
-    private Long recommendation_id;
+    private Long recommendationId;
 
     @Schema(description = "Unique identifier of the recommended product.",
             example = "1", required = true)
-    private Long product_id;
+    private Long productId;
 
     @Schema(description = "The user that wrote the recommendation.",
             example = "John", required = true)
@@ -26,31 +28,34 @@ public class RecommendationDTO {
             example = "This product works well")
     private String content;
 
+    @JsonBackReference
+    private ProductAggregate productAggregate;
+
     public RecommendationDTO(){
     }
 
-    public RecommendationDTO(Long product_id, Long recommendation_id, String author, double rate, String content) {
-        this.product_id = product_id;
-        this.recommendation_id = recommendation_id;
+    public RecommendationDTO(Long productId, Long recommendationId, String author, double rate, String content) {
+        this.productId = productId;
+        this.recommendationId = recommendationId;
         this.author = author;
         this.rate = rate;
         this.content = content;
     }
 
-    public Long getProduct_id() {
-        return product_id;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setProduct_id(Long product_id) {
-        this.product_id = product_id;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
-    public Long getRecommendation_id() {
-        return recommendation_id;
+    public Long getRecommendationId() {
+        return recommendationId;
     }
 
-    public void setRecommendation_id(Long recommendation_id) {
-        this.recommendation_id = recommendation_id;
+    public void setRecommendationId(Long recommendationId) {
+        this.recommendationId = recommendationId;
     }
 
     public String getAuthor() {
@@ -82,19 +87,19 @@ public class RecommendationDTO {
         if (this == o) return true;
         if (!(o instanceof RecommendationDTO)) return false;
         RecommendationDTO that = (RecommendationDTO) o;
-        return Double.compare(that.getRate(), getRate()) == 0 && getProduct_id().equals(that.getProduct_id()) && getRecommendation_id().equals(that.getRecommendation_id()) && getAuthor().equals(that.getAuthor()) && getContent().equals(that.getContent());
+        return Double.compare(that.getRate(), getRate()) == 0 && getProductId().equals(that.getProductId()) && getRecommendationId().equals(that.getRecommendationId()) && getAuthor().equals(that.getAuthor()) && getContent().equals(that.getContent());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getProduct_id(), getRecommendation_id(), getAuthor(), getRate(), getContent());
+        return Objects.hash(getProductId(), getRecommendationId(), getAuthor(), getRate(), getContent());
     }
 
     @Override
     public String toString() {
         return "RecommendationDTO{" +
-                "product_id=" + product_id +
-                ", recommendation_id=" + recommendation_id +
+                "product_id=" + productId +
+                ", recommendation_id=" + recommendationId +
                 ", author='" + author + '\'' +
                 ", rate=" + rate +
                 ", content='" + content + '\'' +

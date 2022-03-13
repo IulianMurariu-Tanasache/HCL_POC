@@ -10,8 +10,8 @@ import java.util.List;
 
 @Repository
 public interface RecommendationRepository extends JpaRepository<Recommendation, Long> {
-    @Query(
-            "select recommendation from RECOMMENDATION recommendation where recommendation.product_id = :id"
-    )
+//    @Query(
+//            "select r from RECOMMENDATION r where r.product_id = :id"
+//    )
     List<Recommendation> findAllByProductId(@Param("id") Long id);
 }

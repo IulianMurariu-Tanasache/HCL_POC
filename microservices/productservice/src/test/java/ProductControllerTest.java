@@ -1,4 +1,5 @@
 import hcl.poc.api.product.ProductDTO;
+import hcl.poc.productservice.TestConfigClass;
 import hcl.poc.productservice.controller.ProductController;
 import hcl.poc.productservice.service.ProductService;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,7 @@ import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 @WebFluxTest(ProductController.class)
-@ContextConfiguration(classes = {hcl.poc.productservice.ProductServiceApplication.class})
+@ContextConfiguration(classes = {TestConfigClass.class})
 public class ProductControllerTest {
 
     @Autowired
@@ -59,7 +60,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    void postProductSuccesss() {
+    void postProductSuccess() {
         Mockito.when(service.addProduct(p1)).thenReturn(p1);
 
         webClient.post()

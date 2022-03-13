@@ -3,34 +3,34 @@ newman
 RecommendationService
 
 → PostRecommendation
-  POST localhost:7003/recommendation [200 OK, 248B, 888ms]
+  POST localhost:7003/recommendation [200 OK, 249B, 683ms]
   √  Status code is 200
 
 → GetFirstRecommendation
-  GET localhost:7003/recommendation/1 [200 OK, 248B, 60ms]
+  GET localhost:7003/recommendation/1 [200 OK, 246B, 69ms]
   √  Status code is 200
   √  Your test name
 
 → PostSecondRecommendation
-  POST localhost:7003/recommendation [200 OK, 269B, 29ms]
+  POST localhost:7003/recommendation [200 OK, 270B, 19ms]
   √  Status code is 200
 
 → GetAllRecommendations
-  GET localhost:7003/recommendation [200 OK, 356B, 211ms]
+  GET localhost:7003/recommendation [200 OK, 352B, 163ms]
   √  Status code is 200
 
 → PutFirstRecommendation
-  PUT localhost:7003/recommendation/1 [200 OK, 257B, 33ms]
+  PUT localhost:7003/recommendation/1 [200 OK, 255B, 34ms]
 
 → DeleteSecondRecommendation
-  DELETE localhost:7003/recommendation/2 [200 OK, 123B, 20ms]
+  DELETE localhost:7003/recommendation/2 [200 OK, 123B, 19ms]
   √  Status code is 200
 
 → GetAllRecommendationsAfter
-  GET localhost:7003/recommendation [200 OK, 259B, 12ms]
+  GET localhost:7003/recommendation [200 OK, 257B, 11ms]
 
 → CloseRecommendationService
-  POST localhost:7003/actuator/shutdown [200 OK, 227B, 18ms]
+  POST localhost:7003/actuator/shutdown [200 OK, 227B, 21ms]
   √  Status code is 200
   √  Your test name
 
@@ -47,9 +47,9 @@ RecommendationService
 ├─────────────────────────┼────────────────────┼────────────────────┤
 │              assertions │                  8 │                  0 │
 ├─────────────────────────┴────────────────────┴────────────────────┤
-│ total run duration: 1881ms                                        │
+│ total run duration: 1723ms                                        │
 ├───────────────────────────────────────────────────────────────────┤
-│ total data received: 688B (approx)                                │
+│ total data received: 680B (approx)                                │
 ├───────────────────────────────────────────────────────────────────┤
-│ average response time: 158ms [min: 12ms, max: 888ms, s.d.: 282ms] │
+│ average response time: 127ms [min: 11ms, max: 683ms, s.d.: 215ms] │
 └───────────────────────────────────────────────────────────────────┘

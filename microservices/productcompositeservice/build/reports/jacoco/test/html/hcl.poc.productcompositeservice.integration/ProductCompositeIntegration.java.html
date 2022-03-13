@@ -177,12 +177,12 @@ public class ProductCompositeIntegration {
     }
 
     public RecommendationDTO addRecommendation(RecommendationDTO recommendationDTO, Long id) {
-<span class="nc" id="L180">        recommendationDTO.setProduct_id(id);</span>
+<span class="nc" id="L180">        recommendationDTO.setProductId(id);</span>
 <span class="nc" id="L181">        return addRecommendation(recommendationDTO);</span>
     }
 
     public ReviewDTO addReview(ReviewDTO reviewDTO, Long id) {
-<span class="nc" id="L185">        reviewDTO.setProduct_id(id);</span>
+<span class="nc" id="L185">        reviewDTO.setProductId(id);</span>
 <span class="nc" id="L186">        return addReview(reviewDTO);</span>
     }
 
@@ -214,12 +214,12 @@ public class ProductCompositeIntegration {
     }
 
     public RecommendationDTO updateRecommendation(RecommendationDTO recommendationDTO, Long recommendation_id, Long id) {
-<span class="nc" id="L217">        recommendationDTO.setProduct_id(id);</span>
+<span class="nc" id="L217">        recommendationDTO.setProductId(id);</span>
 <span class="nc" id="L218">        return updateRecommendation(recommendationDTO, recommendation_id);</span>
     }
 
     public ReviewDTO updateReview(ReviewDTO reviewDTO, Long review_id, Long id) {
-<span class="nc" id="L222">        reviewDTO.setProduct_id(id);</span>
+<span class="nc" id="L222">        reviewDTO.setProductId(id);</span>
 <span class="nc" id="L223">        return updateReview(reviewDTO, review_id);</span>
     }
 }

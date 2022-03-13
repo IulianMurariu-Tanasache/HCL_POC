@@ -1,6 +1,7 @@
 server:
   host: localhost
   port: 7000
+  error.include-message: always
 
 management:
   endpoints:
@@ -18,19 +19,28 @@ app:
     port: 7001
   recommendation-service:
     host: localhost
-    port: 7002
+    port: 7003
   review-service:
     host: localhost
-    port: 7003
+    port: 7002
 
-#spring:
-#
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/userdb
-#    username: poc
-#    password: poc
-#
-#  jpa:
-#    hibernate:
-#      ddl-auto: create-drop
+logging:
+  level:
+    root: INFO
+    com.light: DEBUG
+
+---
+spring.config.activate.on-profile: docker
+
+server.port: 8080
+
+app:
+  product-service:
+    host: product
+    port: 8080
+  recommendation-service:
+    host: recommendation
+    port: 8080
+  review-service:
+    host: review
+    port: 8080

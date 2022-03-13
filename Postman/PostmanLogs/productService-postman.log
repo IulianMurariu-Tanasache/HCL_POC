@@ -3,56 +3,56 @@ newman
 ProductService
 
 → PostFirstProduct
-  POST localhost:7001/product [200 OK, 201B, 1061ms]
+  POST localhost:7001/product [200 OK, 201B, 805ms]
   √  Status code is 200
 
 → GetOneProduct
-  GET localhost:7001/product/1 [200 OK, 201B, 46ms]
+  GET localhost:7001/product/1 [200 OK, 201B, 94ms]
   √  Status code is 200
   √  Your test name
 
 → PostSecondProduct
-  POST localhost:7001/product [200 OK, 203B, 29ms]
+  POST localhost:7001/product [200 OK, 203B, 16ms]
   √  Status code is 200
 
 → GetAllProducts
-  GET localhost:7001/product [200 OK, 243B, 205ms]
+  GET localhost:7001/product [200 OK, 243B, 167ms]
   √  Status code is 200
 
 → PutProduct1
-  PUT localhost:7001/product/1 [200 OK, 202B, 26ms]
+  PUT localhost:7001/product/1 [200 OK, 202B, 34ms]
   √  Status code is 200
 
 → GetOneProductAfterPut
-  GET localhost:7001/product/1 [200 OK, 202B, 12ms]
+  GET localhost:7001/product/1 [200 OK, 202B, 9ms]
   √  Status code is 200
   √  Your test name
 
 → DeleteProduct1
-  DELETE localhost:7001/product/1 [200 OK, 123B, 22ms]
+  DELETE localhost:7001/product/1 [200 OK, 123B, 15ms]
   √  Status code is 200
 
 → CloseProductService
-  POST localhost:7001/actuator/shutdown [200 OK, 227B, 17ms]
+  POST localhost:7001/actuator/shutdown [200 OK, 227B, 27ms]
   √  Status code is 200
   √  Your test name
 
-┌─────────────────────────┬─────────────────────┬────────────────────┐
-│                         │            executed │             failed │
-├─────────────────────────┼─────────────────────┼────────────────────┤
-│              iterations │                   1 │                  0 │
-├─────────────────────────┼─────────────────────┼────────────────────┤
-│                requests │                   8 │                  0 │
-├─────────────────────────┼─────────────────────┼────────────────────┤
-│            test-scripts │                   8 │                  0 │
-├─────────────────────────┼─────────────────────┼────────────────────┤
-│      prerequest-scripts │                   0 │                  0 │
-├─────────────────────────┼─────────────────────┼────────────────────┤
-│              assertions │                  11 │                  0 │
-├─────────────────────────┴─────────────────────┴────────────────────┤
-│ total run duration: 2s                                             │
-├────────────────────────────────────────────────────────────────────┤
-│ total data received: 303B (approx)                                 │
-├────────────────────────────────────────────────────────────────────┤
-│ average response time: 177ms [min: 12ms, max: 1061ms, s.d.: 339ms] │
-└────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────┬────────────────────┬───────────────────┐
+│                         │           executed │            failed │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│              iterations │                  1 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│                requests │                  8 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│            test-scripts │                  8 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│      prerequest-scripts │                  0 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│              assertions │                 11 │                 0 │
+├─────────────────────────┴────────────────────┴───────────────────┤
+│ total run duration: 1831ms                                       │
+├──────────────────────────────────────────────────────────────────┤
+│ total data received: 303B (approx)                               │
+├──────────────────────────────────────────────────────────────────┤
+│ average response time: 145ms [min: 9ms, max: 805ms, s.d.: 254ms] │
+└──────────────────────────────────────────────────────────────────┘

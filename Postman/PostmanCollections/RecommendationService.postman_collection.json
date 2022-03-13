@@ -25,7 +25,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"product_id\": 1,\r\n    \"recommendation_id\": 1,\r\n    \"author\": \"Tom\",\r\n    \"rate\": 3.5,\r\n    \"content\": \"is good\"\r\n}",
+					"raw": "{\r\n    \"productId\": 1,\r\n    \"author\": \"Tom\",\r\n    \"rate\": 3.5,\r\n    \"content\": \"is good\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -58,7 +58,7 @@
 							"\r",
 							"pm.test(\"Your test name\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.product_id).to.eql(1);\r",
+							"    pm.expect(jsonData.productId).to.eql(1);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -102,7 +102,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"product_id\": 2,\r\n    \"recommendation_id\": 2,\r\n    \"author\": \"John\",\r\n    \"rate\": 3.8,\r\n    \"content\": \"this is a good alternative!\"\r\n}",
+					"raw": "{\r\n    \"productId\": 2,\r\n    \"author\": \"John\",\r\n    \"rate\": 3.8,\r\n    \"content\": \"this is a good alternative!\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -161,7 +161,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"product_id\": 1,\r\n    \"recommendation_id\": 1,\r\n    \"author\": \"Tomas\",\r\n    \"rate\": 3.1,\r\n    \"content\": \"is almost good\"\r\n}",
+					"raw": "{\r\n    \"productId\": 1,\r\n    \"recommendationId\": 1,\r\n    \"author\": \"Tomas\",\r\n    \"rate\": 3.1,\r\n    \"content\": \"is almost good\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

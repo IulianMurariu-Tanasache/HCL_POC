@@ -1,4 +1,67 @@
-error: collection could not be loaded
-  unable to read data from file "ProductCompositeService.postman_collection.json"
-  ENOENT: no such file or directory, open 'F:\HCL\POC\poc_repo\Postman\ProductCompositeService.postman_collection.json'
+newman
 
+ProductCompositeService
+
+→ PostComposite
+  POST localhost:7000/composite-product [500 Internal Server Error, 453B, 951ms]
+  1. Status code is 200
+
+→ GetAggregate1
+  GET localhost:7000/composite-product/1 [500 Internal Server Error, 456B, 14ms]
+  2. Status code is 200
+  3. name test
+  4. review list test
+  5. recommendation list test
+
+→ GetAllAggregates
+  GET localhost:7000/composite-product [200 OK, 166B, 75ms]
+
+→ CloseProductCompositeService
+  POST localhost:7000/actuator/shutdown [200 OK, 227B, 11ms]
+
+┌─────────────────────────┬────────────────────┬────────────────────┐
+│                         │           executed │             failed │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              iterations │                  1 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│                requests │                  4 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│            test-scripts │                  2 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│      prerequest-scripts │                  0 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              assertions │                  5 │                  5 │
+├─────────────────────────┴────────────────────┴────────────────────┤
+│ total run duration: 1392ms                                        │
+├───────────────────────────────────────────────────────────────────┤
+│ total data received: 638B (approx)                                │
+├───────────────────────────────────────────────────────────────────┤
+│ average response time: 262ms [min: 11ms, max: 951ms, s.d.: 398ms] │
+└───────────────────────────────────────────────────────────────────┘
+
+  #  failure         detail                                                 
+                                                                            
+ 1.  AssertionError  Status code is 200                                     
+                     expected response to have status code 200 but got 500  
+                     at assertion:0 in test-script                          
+                     inside "PostComposite"                                 
+                                                                            
+ 2.  AssertionError  Status code is 200                                     
+                     expected response to have status code 200 but got 500  
+                     at assertion:0 in test-script                          
+                     inside "GetAggregate1"                                 
+                                                                            
+ 3.  AssertionError  name test                                              
+                     expected undefined to deeply equal 'milk'              
+                     at assertion:1 in test-script                          
+                     inside "GetAggregate1"                                 
+                                                                            
+ 4.  TypeError       review list test                                       
+                     Cannot read properties of undefined (reading 'length') 
+                     at assertion:2 in test-script                          
+                     inside "GetAggregate1"                                 
+                                                                            
+ 5.  TypeError       recommendation list test                               
+                     Cannot read properties of undefined (reading 'length') 
+                     at assertion:3 in test-script                          
+                     inside "GetAggregate1"                                 

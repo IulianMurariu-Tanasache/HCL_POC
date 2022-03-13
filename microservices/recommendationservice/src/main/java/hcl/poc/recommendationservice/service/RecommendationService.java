@@ -23,10 +23,10 @@ public class RecommendationService {
     public RecommendationDTO modifyRecommendation(Long id, RecommendationDTO newRecommendation){
         Recommendation recommendation = repository.getById(id);
 
-        recommendation.setRecommendation_id(id);
+        recommendation.setRecommendationId(id);
         recommendation.setAuthor(newRecommendation.getAuthor());
         recommendation.setContent(newRecommendation.getContent());
-        recommendation.setProduct_id(newRecommendation.getProduct_id());
+        recommendation.setProductId(newRecommendation.getProductId());
         recommendation.setRate(newRecommendation.getRate());
 
         repository.save(recommendation);

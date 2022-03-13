@@ -19,7 +19,7 @@ import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 @WebFluxTest(RecommendationController.class)
-@ContextConfiguration(classes = {hcl.poc.recommendationservice.RecommendationServiceApplication.class})
+@ContextConfiguration(classes = {hcl.poc.recommendationservice.TestConfigClass.class})
 public class RecommendationControllerTest {
 
     @Autowired
@@ -35,7 +35,7 @@ public class RecommendationControllerTest {
     @Test
     void getRecommendationByIDSuccess() {
 
-        Mockito.when(service.getOneRecommendation(recommendation1.getRecommendation_id())).thenReturn(recommendation1);
+        Mockito.when(service.getOneRecommendation(recommendation1.getRecommendationId())).thenReturn(recommendation1);
 
         webClient.get()
                 .uri("/recommendation/1")
@@ -90,7 +90,7 @@ public class RecommendationControllerTest {
 
     @Test
     void putRecommendationSuccess() {
-        Mockito.when(service.modifyRecommendation(recommendation1.getRecommendation_id(), recommendation3)).thenReturn(recommendation3);
+        Mockito.when(service.modifyRecommendation(recommendation1.getRecommendationId(), recommendation3)).thenReturn(recommendation3);
 
         webClient.put()
                 .uri("/recommendation/1")
@@ -100,19 +100,19 @@ public class RecommendationControllerTest {
                 .expectStatus().isOk()
                 .expectBody(RecommendationDTO.class).isEqualTo(recommendation3);
 
-        Mockito.verify(service).modifyRecommendation(recommendation1.getRecommendation_id(), recommendation3);
+        Mockito.verify(service).modifyRecommendation(recommendation1.getRecommendationId(), recommendation3);
     }
 
     @Test
     void deleteRecommendationSuccess() {
-        Mockito.doNothing().when(service).deleteOneRecommendation(recommendation2.getRecommendation_id());
+        Mockito.doNothing().when(service).deleteOneRecommendation(recommendation2.getRecommendationId());
 
         webClient.delete()
                 .uri("/recommendation/2")
                 .exchange()
                 .expectStatus().isOk();
 
-        Mockito.verify(service).deleteOneRecommendation(recommendation2.getRecommendation_id());
+        Mockito.verify(service).deleteOneRecommendation(recommendation2.getRecommendationId());
     }
 
 

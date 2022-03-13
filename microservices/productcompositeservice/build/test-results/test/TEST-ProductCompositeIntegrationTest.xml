@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ProductCompositeIntegrationTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2022-03-12T12:20:55" hostname="DRACIE-CU-CUREN" time="0.729">
+<testsuite name="ProductCompositeIntegrationTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2022-03-13T14:57:54" hostname="DRACIE-CU-CUREN" time="0.724">
   <properties/>
-  <testcase name="updateRecommendationSuccess()" classname="ProductCompositeIntegrationTest" time="0.688"/>
+  <testcase name="updateRecommendationSuccess()" classname="ProductCompositeIntegrationTest" time="0.691"/>
   <testcase name="getProductsSuccess()" classname="ProductCompositeIntegrationTest" time="0.002"/>
-  <testcase name="deleteRecommendationSuccess()" classname="ProductCompositeIntegrationTest" time="0.003"/>
-  <testcase name="addRecommendationSuccess()" classname="ProductCompositeIntegrationTest" time="0.002"/>
-  <testcase name="deleteReviewSuccess()" classname="ProductCompositeIntegrationTest" time="0.002"/>
-  <testcase name="addReviewSuccess()" classname="ProductCompositeIntegrationTest" time="0.003"/>
-  <testcase name="updateReviewSuccess()" classname="ProductCompositeIntegrationTest" time="0.003"/>
-  <testcase name="getRecommendationsForProductSuccess()" classname="ProductCompositeIntegrationTest" time="0.003"/>
+  <testcase name="deleteRecommendationSuccess()" classname="ProductCompositeIntegrationTest" time="0.002"/>
+  <testcase name="addRecommendationSuccess()" classname="ProductCompositeIntegrationTest" time="0.003"/>
+  <testcase name="deleteReviewSuccess()" classname="ProductCompositeIntegrationTest" time="0.003"/>
+  <testcase name="addReviewSuccess()" classname="ProductCompositeIntegrationTest" time="0.002"/>
+  <testcase name="updateReviewSuccess()" classname="ProductCompositeIntegrationTest" time="0.001"/>
+  <testcase name="getRecommendationsForProductSuccess()" classname="ProductCompositeIntegrationTest" time="0.002"/>
   <testcase name="addProductSuccess()" classname="ProductCompositeIntegrationTest" time="0.002"/>
   <testcase name="updateProductSuccess()" classname="ProductCompositeIntegrationTest" time="0.003"/>
-  <testcase name="getReviewsForProductSuccess()" classname="ProductCompositeIntegrationTest" time="0.003"/>
+  <testcase name="getReviewsForProductSuccess()" classname="ProductCompositeIntegrationTest" time="0.001"/>
   <testcase name="deleteProductSuccess()" classname="ProductCompositeIntegrationTest" time="0.002"/>
-  <testcase name="getProductSuccess()" classname="ProductCompositeIntegrationTest" time="0.002"/>
-  <system-out><![CDATA[2022-03-12 14:20:56.312  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
-2022-03-12 14:20:56.324  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
-2022-03-12 14:20:56.327  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
-2022-03-12 14:20:56.332  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
-2022-03-12 14:20:56.334  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
-2022-03-12 14:20:56.338  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
-2022-03-12 14:20:56.341  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
-2022-03-12 14:20:56.345  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
-2022-03-12 14:20:56.348  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
-2022-03-12 14:20:56.352  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
-2022-03-12 14:20:56.356  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
-2022-03-12 14:20:56.360  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
-2022-03-12 14:20:56.362  INFO 7036 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+  <testcase name="getProductSuccess()" classname="ProductCompositeIntegrationTest" time="0.001"/>
+  <system-out><![CDATA[2022-03-13 16:57:55.657  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+2022-03-13 16:57:55.668  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+2022-03-13 16:57:55.671  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+2022-03-13 16:57:55.674  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+2022-03-13 16:57:55.678  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+2022-03-13 16:57:55.682  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+2022-03-13 16:57:55.684  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+2022-03-13 16:57:55.687  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+2022-03-13 16:57:55.689  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+2022-03-13 16:57:55.691  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+2022-03-13 16:57:55.694  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+2022-03-13 16:57:55.697  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
+2022-03-13 16:57:55.699  INFO 3396 --- [    Test worker] h.p.p.i.ProductCompositeIntegration      : localhost:7001
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"review_id\": 1,\r\n    \"product_id\": 1,\r\n    \"author\": \"Tom\",\r\n    \"subject\": \"is good\",\r\n    \"content\": \"quite good\"\r\n}",
+					"raw": "{\r\n    \"productId\": 1,\r\n    \"author\": \"Tom\",\r\n    \"subject\": \"is good\",\r\n    \"content\": \"quite good\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -44,7 +44,7 @@
 							"});\r",
 							"pm.test(\"Your test name\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.product_id).to.eql(1);\r",
+							"    pm.expect(jsonData.productId).to.eql(1);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -88,7 +88,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"review_id\": 2,\r\n    \"product_id\": 2,\r\n    \"author\": \"Tomas\",\r\n    \"subject\": \"this is a product\",\r\n    \"content\": \"quite good product\"\r\n}",
+					"raw": "{\r\n    \"productId\": 2,\r\n    \"author\": \"Tomas\",\r\n    \"subject\": \"this is a product\",\r\n    \"content\": \"quite good product\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -159,7 +159,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"review_id\": 1,\r\n    \"product_id\": 1,\r\n    \"author\": \"Scott\",\r\n    \"subject\": \"is bad\",\r\n    \"content\": \"don't buy\"\r\n}",
+					"raw": "{\r\n    \"reviewId\": 1,\r\n    \"productId\": 1,\r\n    \"author\": \"Scott\",\r\n    \"subject\": \"is bad\",\r\n    \"content\": \"don't buy\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

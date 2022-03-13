@@ -23,8 +23,8 @@ import java.util.List;
     public ReviewDTO modifyReview(Long id, ReviewDTO newReview){
 <span class="nc" id="L24">        Review review = repository.getById(id);</span>
 
-<span class="nc" id="L26">        review.setReview_id(id);</span>
-<span class="nc" id="L27">        review.setProduct_id(newReview.getProduct_id());</span>
+<span class="nc" id="L26">        review.setReviewId(id);</span>
+<span class="nc" id="L27">        review.setProductId(newReview.getProductId());</span>
 <span class="nc" id="L28">        review.setAuthor(newReview.getAuthor());</span>
 <span class="nc" id="L29">        review.setSubject(newReview.getSubject());</span>
 <span class="nc" id="L30">        review.setContent(newReview.getContent());</span>

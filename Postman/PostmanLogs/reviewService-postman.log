@@ -3,34 +3,34 @@ newman
 ReviewService
 
 → PostReview
-  POST localhost:7002/review [200 OK, 252B, 895ms]
+  POST localhost:7002/review [200 OK, 253B, 624ms]
 
 → GetFirstReview
-  GET localhost:7002/review/1 [200 OK, 252B, 54ms]
+  GET localhost:7002/review/1 [200 OK, 250B, 69ms]
   √  Status code is 200
   √  Your test name
 
 → PostSecondReview
-  POST localhost:7002/review [200 OK, 272B, 31ms]
+  POST localhost:7002/review [200 OK, 273B, 17ms]
   √  Status code is 200
 
 → GetAllReviews
-  GET localhost:7002/review [200 OK, 363B, 261ms]
+  GET localhost:7002/review [200 OK, 359B, 114ms]
   √  Status code is 200
 
 → PutFirstReview
-  PUT localhost:7002/review/1 [200 OK, 252B, 31ms]
+  PUT localhost:7002/review/1 [200 OK, 250B, 34ms]
   √  Status code is 200
 
 → DeleteSecondReview
-  DELETE localhost:7002/review/2 [200 OK, 123B, 17ms]
+  DELETE localhost:7002/review/2 [200 OK, 123B, 16ms]
   √  Status code is 200
 
 → GetAllReviewsAfter
-  GET localhost:7002/review [200 OK, 254B, 12ms]
+  GET localhost:7002/review [200 OK, 252B, 10ms]
 
 → CloseReviewService
-  POST localhost:7002/actuator/shutdown [200 OK, 227B, 20ms]
+  POST localhost:7002/actuator/shutdown [200 OK, 227B, 15ms]
   √  Status code is 200
   √  Your test name
 
@@ -47,9 +47,9 @@ ReviewService
 ├─────────────────────────┼────────────────────┼────────────────────┤
 │              assertions │                  8 │                  0 │
 ├─────────────────────────┴────────────────────┴────────────────────┤
-│ total run duration: 1994ms                                        │
+│ total run duration: 1576ms                                        │
 ├───────────────────────────────────────────────────────────────────┤
-│ total data received: 696B (approx)                                │
+│ total data received: 688B (approx)                                │
 ├───────────────────────────────────────────────────────────────────┤
-│ average response time: 165ms [min: 12ms, max: 895ms, s.d.: 286ms] │
+│ average response time: 112ms [min: 10ms, max: 624ms, s.d.: 196ms] │
 └───────────────────────────────────────────────────────────────────┘

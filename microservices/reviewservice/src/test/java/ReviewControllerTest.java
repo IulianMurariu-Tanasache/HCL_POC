@@ -19,7 +19,7 @@ import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 @WebFluxTest(ReviewController.class)
-@ContextConfiguration(classes = {hcl.poc.reviewservice.ReviewServiceApplication.class})
+@ContextConfiguration(classes = {hcl.poc.reviewservice.TestConfigClass.class})
 public class ReviewControllerTest {
 
     @Autowired
@@ -34,7 +34,7 @@ public class ReviewControllerTest {
 
     @Test
     void getReviewByIDSuccess() {
-        Mockito.when(service.getOneReview(review1.getReview_id())).thenReturn(review1);
+        Mockito.when(service.getOneReview(review1.getReviewId())).thenReturn(review1);
 
         webClient.get()
                 .uri("/review/1")
@@ -87,7 +87,7 @@ public class ReviewControllerTest {
 
     @Test
     void putReviewSuccess() {
-        Mockito.when(service.modifyReview(review1.getReview_id(), review3)).thenReturn(review3);
+        Mockito.when(service.modifyReview(review1.getReviewId(), review3)).thenReturn(review3);
 
         webClient.put()
                 .uri("/review/1")
@@ -97,18 +97,18 @@ public class ReviewControllerTest {
                 .expectStatus().isOk()
                 .expectBody(ReviewDTO.class).isEqualTo(review3);
 
-        Mockito.verify(service).modifyReview(review1.getReview_id(), review3);
+        Mockito.verify(service).modifyReview(review1.getReviewId(), review3);
     }
 
     @Test
     void deleteReviewSuccess() {
-        Mockito.doNothing().when(service).deleteOneReview(review2.getReview_id());
+        Mockito.doNothing().when(service).deleteOneReview(review2.getReviewId());
 
         webClient.delete()
                 .uri("/review/2")
                 .exchange()
                 .expectStatus().isOk();
 
-        Mockito.verify(service).deleteOneReview(review2.getReview_id());
+        Mockito.verify(service).deleteOneReview(review2.getReviewId());
     }
 }

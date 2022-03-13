@@ -6,7 +6,74 @@
 	},
 	"item": [
 		{
+			"name": "PostComposite",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"milk\",\r\n    \"weight\": 20.55,\r\n    \"recommendationList\": [\r\n        {\r\n            \"author\": \"Tom\",\r\n            \"rate\": 3.5,\r\n            \"content\": \"is good\"\r\n        }\r\n    ],\r\n    \"reviewList\": [\r\n        {\r\n            \"author\": \"Tom\",\r\n            \"subject\": \"is good\",\r\n            \"content\": \"quite good\" \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7000/composite-product",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"composite-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GetAggregate1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"name test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"milk\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"review list test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.reviewList.length).to.eql(1)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"recommendation list test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.recommendationList.length).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -26,6 +93,19 @@
 		},
 		{
 			"name": "GetAllAggregates",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -44,6 +124,23 @@
 		},
 		{
 			"name": "CloseProductCompositeService",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"Shutting down, bye...\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],

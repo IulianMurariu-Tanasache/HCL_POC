@@ -23,8 +23,8 @@ public class ReviewService {
     public ReviewDTO modifyReview(Long id, ReviewDTO newReview){
         Review review = repository.getById(id);
 
-        review.setReview_id(id);
-        review.setProduct_id(newReview.getProduct_id());
+        review.setReviewId(id);
+        review.setProductId(newReview.getProductId());
         review.setAuthor(newReview.getAuthor());
         review.setSubject(newReview.getSubject());
         review.setContent(newReview.getContent());

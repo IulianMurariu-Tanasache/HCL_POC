@@ -27,8 +27,8 @@ import java.util.List;
 <span class="fc" id="L27">        productAggregate.setId(product.getId());</span>
 <span class="fc" id="L28">        productAggregate.setName(product.getName());</span>
 <span class="fc" id="L29">        productAggregate.setWeight(product.getWeight());</span>
-<span class="fc" id="L30">        productAggregate.setRecommendations(recommendations);</span>
-<span class="fc" id="L31">        productAggregate.setReviews(reviews);</span>
+<span class="fc" id="L30">        productAggregate.setRecommendationList(recommendations);</span>
+<span class="fc" id="L31">        productAggregate.setReviewList(reviews);</span>
 <span class="fc" id="L32">        LOG.info(&quot;returning productAggregate&quot;);</span>
 <span class="fc" id="L33">        return productAggregate;</span>
     }
@@ -55,44 +55,45 @@ import java.util.List;
 <span class="fc" id="L55">        ProductDTO product = integration.addProduct(productDTO);</span>
 <span class="fc" id="L56">        List&lt;RecommendationDTO&gt; recommendationDTOS = new ArrayList&lt;&gt;();</span>
 <span class="fc" id="L57">        List&lt;ReviewDTO&gt; reviewDTOs = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L58" title="All 2 branches covered.">        for(RecommendationDTO recommendationDTO : productAggregate.getRecommendations()) {</span>
-<span class="fc" id="L59">            recommendationDTOS.add(integration.addRecommendation(recommendationDTO, productAggregate.getId()));</span>
-<span class="fc" id="L60">        }</span>
-<span class="fc bfc" id="L61" title="All 2 branches covered.">        for(ReviewDTO reviewDTO : productAggregate.getReviews()) {</span>
-<span class="fc" id="L62">            reviewDTOs.add(integration.addReview(reviewDTO, productAggregate.getId()));</span>
-<span class="fc" id="L63">        }</span>
+<span class="fc" id="L58">        System.out.println(productAggregate);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        for(RecommendationDTO recommendationDTO : productAggregate.getRecommendationList()) {</span>
+<span class="fc" id="L60">            recommendationDTOS.add(integration.addRecommendation(recommendationDTO, product.getId()));</span>
+<span class="fc" id="L61">        }</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        for(ReviewDTO reviewDTO : productAggregate.getReviewList()) {</span>
+<span class="fc" id="L63">            reviewDTOs.add(integration.addReview(reviewDTO, product.getId()));</span>
+<span class="fc" id="L64">        }</span>
 
-<span class="fc" id="L65">        return createProductAggregate(product, reviewDTOs, recommendationDTOS);</span>
+<span class="fc" id="L66">        return createProductAggregate(product, reviewDTOs, recommendationDTOS);</span>
     }
 
     public ProductAggregate updateProductComposite(Long id, ProductAggregate productAggregate){
         //TODO make this either add new product, reviews, recommendations or update existing one -&gt; also do this in integration
         //TODO remake tests for updates for integration and service and controller
-<span class="nc" id="L71">        ProductDTO newProductDTO = new ProductDTO(productAggregate.getId(), productAggregate.getName(), productAggregate.getWeight());</span>
-<span class="nc" id="L72">        ProductDTO product = integration.updateProduct(newProductDTO, id);</span>
+<span class="nc" id="L72">        ProductDTO newProductDTO = new ProductDTO(productAggregate.getId(), productAggregate.getName(), productAggregate.getWeight());</span>
+<span class="nc" id="L73">        ProductDTO product = integration.updateProduct(newProductDTO, id);</span>
 
-<span class="nc" id="L74">        List&lt;RecommendationDTO&gt; recommendationDTOS = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L75">        List&lt;ReviewDTO&gt; reviewDTOs = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L75">        List&lt;RecommendationDTO&gt; recommendationDTOS = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L76">        List&lt;ReviewDTO&gt; reviewDTOs = new ArrayList&lt;&gt;();</span>
 
-<span class="nc bnc" id="L77" title="All 2 branches missed.">        for(RecommendationDTO recommendationDTO : integration.getRecommendationsForProduct(id)) {</span>
-<span class="nc" id="L78">            recommendationDTOS.add(integration.updateRecommendation(recommendationDTO, recommendationDTO.getRecommendation_id(), newProductDTO.getId()));</span>
-<span class="nc" id="L79">        }</span>
-<span class="nc bnc" id="L80" title="All 2 branches missed.">        for(ReviewDTO reviewDTO : productAggregate.getReviews()) {</span>
-<span class="nc" id="L81">            reviewDTOs.add(integration.updateReview(reviewDTO, reviewDTO.getReview_id(), newProductDTO.getId()));</span>
-<span class="nc" id="L82">        }</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        for(RecommendationDTO recommendationDTO : integration.getRecommendationsForProduct(id)) {</span>
+<span class="nc" id="L79">            recommendationDTOS.add(integration.updateRecommendation(recommendationDTO, recommendationDTO.getRecommendationId(), newProductDTO.getId()));</span>
+<span class="nc" id="L80">        }</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        for(ReviewDTO reviewDTO : integration.getReviewsForProduct(id)) {</span>
+<span class="nc" id="L82">            reviewDTOs.add(integration.updateReview(reviewDTO, reviewDTO.getReviewId(), newProductDTO.getId()));</span>
+<span class="nc" id="L83">        }</span>
 
-<span class="nc" id="L84">        return createProductAggregate(product, reviewDTOs, recommendationDTOS);</span>
+<span class="nc" id="L85">        return createProductAggregate(product, reviewDTOs, recommendationDTOS);</span>
     }
 
     public void deleteProductComposite(Long id){
 
-<span class="fc" id="L89">        integration.deleteProduct(id);</span>
+<span class="fc" id="L90">        integration.deleteProduct(id);</span>
 
-<span class="fc bfc" id="L91" title="All 2 branches covered.">        for(RecommendationDTO recommendationDTO : integration.getRecommendationsForProduct(id))</span>
-<span class="fc" id="L92">            integration.deleteRecommendation(recommendationDTO.getRecommendation_id());</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        for(RecommendationDTO recommendationDTO : integration.getRecommendationsForProduct(id))</span>
+<span class="fc" id="L93">            integration.deleteRecommendation(recommendationDTO.getRecommendationId());</span>
 
-<span class="fc bfc" id="L94" title="All 2 branches covered.">        for(ReviewDTO reviewDTO : integration.getReviewsForProduct(id))</span>
-<span class="fc" id="L95">            integration.deleteReview(reviewDTO.getReview_id());</span>
-<span class="fc" id="L96">    }</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        for(ReviewDTO reviewDTO : integration.getReviewsForProduct(id))</span>
+<span class="fc" id="L96">            integration.deleteReview(reviewDTO.getReviewId());</span>
+<span class="fc" id="L97">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

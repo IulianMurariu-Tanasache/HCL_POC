@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "2e84d851-b4a7-4648-9d13-8bcf2fefb3a2",
+		"name": "docker-composite-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PostComposite",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"milk\",\r\n    \"weight\": 20.55,\r\n    \"recommendationList\": [\r\n        {\r\n            \"author\": \"Tom\",\r\n            \"rate\": 3.5,\r\n            \"content\": \"is good\"\r\n        }\r\n    ],\r\n    \"reviewList\": [\r\n        {\r\n            \"author\": \"Tom\",\r\n            \"subject\": \"is good\",\r\n            \"content\": \"quite good\" \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/composite-product",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"composite-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetComposite",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/composite-product/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"composite-product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

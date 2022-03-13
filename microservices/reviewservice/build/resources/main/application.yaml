@@ -1,5 +1,11 @@
 server:
   port: 7002
+  error.include-message: always
+
+logging:
+  level:
+    root: INFO
+    hcl.poc.productservice: DEBUG
 
 spring:
 
@@ -22,3 +28,21 @@ management:
     shutdown:
       sensitive: false
       enabled: true
+
+---
+spring.config.activate.on-profile: docker
+
+server:
+  port: 8080
+
+spring:
+  datasource:
+    dialect: org.hibernate.dialect.MySQL8Dialect
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysqldb:3306/reviewdb?autoReconnect=true
+    username: poc
+    password: poc
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop

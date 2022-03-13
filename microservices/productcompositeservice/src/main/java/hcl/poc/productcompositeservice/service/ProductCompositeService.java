@@ -27,8 +27,8 @@ public class ProductCompositeService {
         productAggregate.setId(product.getId());
         productAggregate.setName(product.getName());
         productAggregate.setWeight(product.getWeight());
-        productAggregate.setRecommendations(recommendations);
-        productAggregate.setReviews(reviews);
+        productAggregate.setRecommendationList(recommendations);
+        productAggregate.setReviewList(reviews);
         LOG.info("returning productAggregate");
         return productAggregate;
     }
@@ -55,11 +55,12 @@ public class ProductCompositeService {
         ProductDTO product = integration.addProduct(productDTO);
         List<RecommendationDTO> recommendationDTOS = new ArrayList<>();
         List<ReviewDTO> reviewDTOs = new ArrayList<>();
-        for(RecommendationDTO recommendationDTO : productAggregate.getRecommendations()) {
-            recommendationDTOS.add(integration.addRecommendation(recommendationDTO, productAggregate.getId()));
+        System.out.println(productAggregate);
+        for(RecommendationDTO recommendationDTO : productAggregate.getRecommendationList()) {
+            recommendationDTOS.add(integration.addRecommendation(recommendationDTO, product.getId()));
         }
-        for(ReviewDTO reviewDTO : productAggregate.getReviews()) {
-            reviewDTOs.add(integration.addReview(reviewDTO, productAggregate.getId()));
+        for(ReviewDTO reviewDTO : productAggregate.getReviewList()) {
+            reviewDTOs.add(integration.addReview(reviewDTO, product.getId()));
         }
 
         return createProductAggregate(product, reviewDTOs, recommendationDTOS);
@@ -75,10 +76,10 @@ public class ProductCompositeService {
         List<ReviewDTO> reviewDTOs = new ArrayList<>();
 
         for(RecommendationDTO recommendationDTO : integration.getRecommendationsForProduct(id)) {
-            recommendationDTOS.add(integration.updateRecommendation(recommendationDTO, recommendationDTO.getRecommendation_id(), newProductDTO.getId()));
+            recommendationDTOS.add(integration.updateRecommendation(recommendationDTO, recommendationDTO.getRecommendationId(), newProductDTO.getId()));
         }
-        for(ReviewDTO reviewDTO : productAggregate.getReviews()) {
-            reviewDTOs.add(integration.updateReview(reviewDTO, reviewDTO.getReview_id(), newProductDTO.getId()));
+        for(ReviewDTO reviewDTO : integration.getReviewsForProduct(id)) {
+            reviewDTOs.add(integration.updateReview(reviewDTO, reviewDTO.getReviewId(), newProductDTO.getId()));
         }
 
         return createProductAggregate(product, reviewDTOs, recommendationDTOS);
@@ -89,9 +90,9 @@ public class ProductCompositeService {
         integration.deleteProduct(id);
 
         for(RecommendationDTO recommendationDTO : integration.getRecommendationsForProduct(id))
-            integration.deleteRecommendation(recommendationDTO.getRecommendation_id());
+            integration.deleteRecommendation(recommendationDTO.getRecommendationId());
 
         for(ReviewDTO reviewDTO : integration.getReviewsForProduct(id))
-            integration.deleteReview(reviewDTO.getReview_id());
+            integration.deleteReview(reviewDTO.getReviewId());
     }
 }
